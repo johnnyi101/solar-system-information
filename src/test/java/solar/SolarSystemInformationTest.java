@@ -148,7 +148,6 @@ public class SolarSystemInformationTest {
         String inputPassword = "abcD1234!@";
         String inputAOC = "s244gfdgf";
         String expectedOut = "Invalid Format";
-
         SolarSystemInformation cut = new SolarSystemInformation(inputID, inputPassword);
         cut.setAstronomicalObjectClassificationCode(inputAOC);
         //act
@@ -158,5 +157,11 @@ public class SolarSystemInformationTest {
         assertEquals(expectedOut, actualOut);
 
 
+    }
+    @Test
+    public void objectName_is_capitalised(){
+        //arrange
+        //act
+        //assert
     }
 }
