@@ -35,6 +35,22 @@ public class SolarSystemInformationTest
         assertEquals(expectedObjectName, resultON);
         assertEquals(expectedObjectType, resultOT);
     }
+    @Test
+    public void user_id_final_four_are_digits_if_not_error()
+    {
+        //arrange
+        String input = "1X999";
+        String expectedObjectType = "Not Allowed";
+        String expectedObjectName = "Not Allowed";
+        SolarSystemInformation cut = new SolarSystemInformation(input);
+        //act
+        String resultOT =  cut.getObjectType();
+        String resultON = cut.getObjectName();
+        //assert
+        assertEquals(expectedObjectName, resultON);
+        assertEquals(expectedObjectType, resultOT);
+
+    }
 
 
 }

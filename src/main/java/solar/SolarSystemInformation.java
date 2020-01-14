@@ -9,10 +9,13 @@ private String objectName;
     public SolarSystemInformation(String userID)
     {
         this.userID = userID;
-        if(userID.length()!=6 && !userID.matches("/^[A-Z]{2}/")){
+        if(userID.length()==6 && userID.matches("/^[A-Z]{2}/") && userID.matches("\\d{4} $")){
+           setObjectType("Valid");
+           setObjectName("Valid");
+        }
+        else
             setObjectName("Not Allowed");
             setObjectType("Not Allowed");
-        }
 
 
     }
