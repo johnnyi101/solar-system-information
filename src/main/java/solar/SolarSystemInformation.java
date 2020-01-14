@@ -1,5 +1,7 @@
 package solar;
 
+import java.util.regex.Pattern;
+
 public class SolarSystemInformation
 {
 private String userID;
@@ -9,14 +11,16 @@ private String objectName;
     public SolarSystemInformation(String userID)
     {
         this.userID=userID;
-        if(userID.length() == 6){
+        if(userID.matches("[A-Z]{2}[0-9]{4}")){
             setObjectName("Valid");
             setObjectType("Valid");
         }
-        else {
+        else
+            {
             setObjectName("Not Allowed");
             setObjectType("Not Allowed");
-        }
+            }
+
 
     }
     public String getUserID() {
