@@ -5,15 +5,16 @@ import static org.junit.jupiter.api.Assertions.*;
 
 public class SolarSystemInformationTest
 {
-
+///////////////////////////////////User ID and password validation tests///////////////////////////////////////////////
     @Test
     public void a_valid_user_idlength_is_accepted()
     {
         //arrange
-        String input = "AB1234";
+        String inputID = "AB1234";
+        String inputPassword = "abcD1234!@";
         String expectedObjectType = "Valid";
         String expectedObjectName = "Valid";
-        SolarSystemInformation cut = new SolarSystemInformation(input);
+        SolarSystemInformation cut = new SolarSystemInformation(inputID, inputPassword);
         //act
         String resultOT = cut.getObjectType();
         String resultON = cut.getObjectName();
@@ -25,10 +26,11 @@ public class SolarSystemInformationTest
     public void id_with_two_capital_letters_at_start_is_accepted()
     {
         //arrange
-        String input = "AB1234";
+        String inputID = "AB1234";
+        String inputPassword = "abcD1234!@";
         String expectedObjectType = "Valid";
         String expectedObjectName = "Valid";
-        SolarSystemInformation cut = new SolarSystemInformation(input);
+        SolarSystemInformation cut = new SolarSystemInformation(inputID, inputPassword);
         //act
         String resultOT = cut.getObjectType();
         String resultON = cut.getObjectName();
@@ -40,10 +42,11 @@ public class SolarSystemInformationTest
     public void id_with_four_numbers_at_end_is_accepted()
     {
         //arrange
-        String input = "AB1234";
+        String inputID = "AB1234";
+        String inputPassword = "abcD1234!@";
         String expectedObjectType = "Valid";
         String expectedObjectName = "Valid";
-        SolarSystemInformation cut = new SolarSystemInformation(input);
+        SolarSystemInformation cut = new SolarSystemInformation(inputID, inputPassword);
         //act
         String resultOT = cut.getObjectType();
         String resultON = cut.getObjectName();
@@ -55,10 +58,11 @@ public class SolarSystemInformationTest
     public void erroneous_entries_are_not_allowed()
     {
         //arrange
-        String input = "1B12/4";
+        String inputID = "1B12/4";
+        String inputPassword = "abcD1234!@";
         String expectedObjectType = "Not Allowed";
         String expectedObjectName = "Not Allowed";
-        SolarSystemInformation cut = new SolarSystemInformation(input);
+        SolarSystemInformation cut = new SolarSystemInformation(inputID, inputPassword);
         //act
         String resultOT = cut.getObjectType();
         String resultON = cut.getObjectName();
@@ -70,10 +74,11 @@ public class SolarSystemInformationTest
     public void user_ID_cannot_end_in_four_zeros()
     {
         //arrange
-        String input = "AB0000";
+        String inputID = "AB0000";
+        String inputPassword = "abcD1234!@";
         String expectedObjectType = "Not Allowed";
         String expectedObjectName = "Not Allowed";
-        SolarSystemInformation cut = new SolarSystemInformation(input);
+        SolarSystemInformation cut = new SolarSystemInformation(inputID, inputPassword);
         //act
         String resultOT = cut.getObjectType();
         String resultON = cut.getObjectName();
@@ -85,16 +90,39 @@ public class SolarSystemInformationTest
     public void password_must_be_at_least_ten_characters_in_length()
     {
         //arrange
-        String input = "ABCD1234!";
+        String inputID = "ABCD1234!";
+        String inputPassword = "abcD1234!@";
         String expectedObjectType = "Not Allowed";
         String expectedObjectName = "Not Allowed";
-        SolarSystemInformation cut = new SolarSystemInformation(input);
+        SolarSystemInformation cut = new SolarSystemInformation(inputID, inputPassword);
         //act
         String resultOT = cut.getObjectType();
         String resultON = cut.getObjectName();
         //assert
         assertEquals(expectedObjectName, resultON);
         assertEquals(expectedObjectType, resultOT);
+    }
+    @Test
+    public void password_must_have_one_upper_lower_special()
+    {
+        //arrange
+        String inputID = "AB1234";
+        String inputPassword = "abcD1234!@";
+        String expectedObjectType = "Valid";
+        String expectedObjectName = "Valid";
+        SolarSystemInformation cut = new SolarSystemInformation(inputID, inputPassword);
+        //act
+        String resultOT = cut.getObjectType();
+        String resultON = cut.getObjectName();
+        //assert
+        assertEquals(expectedObjectName, resultON);
+        assertEquals(expectedObjectType, resultOT);
+    }
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    @Test
+    public void test_placeholder()
+    {
+
     }
 
 }
