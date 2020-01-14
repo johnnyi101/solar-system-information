@@ -11,7 +11,7 @@ private String objectName;
     public SolarSystemInformation(String userID)
     {
         this.userID=userID;
-        if(userID.matches("[A-Z]{2}[0-9]{4}")){
+        if(userID.matches("[A-Z]{2}[0-9]{4}") && !userID.endsWith("0000")){
             setObjectName("Valid");
             setObjectType("Valid");
         }
