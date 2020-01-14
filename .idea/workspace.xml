@@ -2,8 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="b3495607-c0e1-44f7-bf5e-2e7fd35e3c69" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/src/main/java/solar/InvalidFormatException.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/solar/InvalidFormatException.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/solar/SolarSystemInformation.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/solar/SolarSystemInformation.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/solar/SolarSystemInformationTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/solar/SolarSystemInformationTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/solar/InvalidFormatException.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/solar/InvalidFormatException.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/solar/SolarSystemInformation.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/solar/SolarSystemInformation.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/solar/SolarSystemInformationTest.class" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -19,6 +23,11 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="JavaAutoRunManager">
+    <enabled-run-configurations>
+      <run-configuration type="JUnit" name="SolarSystemInformationTest" />
+    </enabled-run-configurations>
   </component>
   <component name="MavenImportPreferences">
     <option name="importingSettings">
@@ -90,22 +99,22 @@
       <screen x="0" y="0" width="1280" height="984" />
     </state>
     <state x="445" y="209" key="#com.intellij.ide.util.MemberChooser/0.0.1280.984/1280.0.1280.984@0.0.1280.984" timestamp="1579004783894" />
-    <state width="1237" height="263" key="GridCell.Tab.0.bottom" timestamp="1579012322827">
+    <state width="1237" height="263" key="GridCell.Tab.0.bottom" timestamp="1579015360118">
       <screen x="0" y="0" width="1280" height="984" />
     </state>
-    <state width="1237" height="263" key="GridCell.Tab.0.bottom/0.0.1280.984/1280.0.1280.984@0.0.1280.984" timestamp="1579012322827" />
-    <state width="1237" height="263" key="GridCell.Tab.0.center" timestamp="1579012322827">
+    <state width="1237" height="263" key="GridCell.Tab.0.bottom/0.0.1280.984/1280.0.1280.984@0.0.1280.984" timestamp="1579015360118" />
+    <state width="1237" height="263" key="GridCell.Tab.0.center" timestamp="1579015360118">
       <screen x="0" y="0" width="1280" height="984" />
     </state>
-    <state width="1237" height="263" key="GridCell.Tab.0.center/0.0.1280.984/1280.0.1280.984@0.0.1280.984" timestamp="1579012322827" />
-    <state width="1237" height="263" key="GridCell.Tab.0.left" timestamp="1579012322827">
+    <state width="1237" height="263" key="GridCell.Tab.0.center/0.0.1280.984/1280.0.1280.984@0.0.1280.984" timestamp="1579015360118" />
+    <state width="1237" height="263" key="GridCell.Tab.0.left" timestamp="1579015360117">
       <screen x="0" y="0" width="1280" height="984" />
     </state>
-    <state width="1237" height="263" key="GridCell.Tab.0.left/0.0.1280.984/1280.0.1280.984@0.0.1280.984" timestamp="1579012322827" />
-    <state width="1237" height="263" key="GridCell.Tab.0.right" timestamp="1579012322827">
+    <state width="1237" height="263" key="GridCell.Tab.0.left/0.0.1280.984/1280.0.1280.984@0.0.1280.984" timestamp="1579015360117" />
+    <state width="1237" height="263" key="GridCell.Tab.0.right" timestamp="1579015360118">
       <screen x="0" y="0" width="1280" height="984" />
     </state>
-    <state width="1237" height="263" key="GridCell.Tab.0.right/0.0.1280.984/1280.0.1280.984@0.0.1280.984" timestamp="1579012322827" />
+    <state width="1237" height="263" key="GridCell.Tab.0.right/0.0.1280.984/1280.0.1280.984@0.0.1280.984" timestamp="1579015360118" />
     <state x="382" y="112" key="refactoring.ChangeSignatureDialog" timestamp="1579012248729">
       <screen x="0" y="0" width="1280" height="984" />
     </state>

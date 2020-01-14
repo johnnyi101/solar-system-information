@@ -2,7 +2,7 @@ package solar;
 
 public class InvalidFormatException extends Exception
 {
-    public InvalidFormatException() {
-        super("Invalid Format");
+    public InvalidFormatException(String message) {
+        super(message);
     }
 }

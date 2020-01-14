@@ -126,15 +126,14 @@ public class SolarSystemInformationTest {
 
     ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     @Test
-    public void AOC_getter_validation() {
+    public void AOC_getter_validation() throws InvalidFormatException {
         //arrange
         String inputID = "AB1234";
         String inputPassword = "abcD1234!@";
         String inputAOC = "SSun27TL";
         String expectedOut = "SSun27TL";
-
         SolarSystemInformation cut = new SolarSystemInformation(inputID, inputPassword);
-
+        cut.setAstronomicalObjectClassificationCode(inputAOC);
         //act
         String result = cut.getAstronomicalObjectClassificationCode();
         //assert
@@ -143,7 +142,7 @@ public class SolarSystemInformationTest {
     }
 
     @Test
-    public void AOC_getter_validation_bad_format_gets_error() {
+    public void AOC_getter_validation_bad_format_gets_error() throws InvalidFormatException {
         //arrange
         String inputID = "AB1234";
         String inputPassword = "abcD1234!@";
@@ -153,9 +152,11 @@ public class SolarSystemInformationTest {
         SolarSystemInformation cut = new SolarSystemInformation(inputID, inputPassword);
         cut.setAstronomicalObjectClassificationCode(inputAOC);
         //act
-        String result = cut.getAstronomicalObjectClassificationCode();
+        Exception exception = assertThrows(InvalidFormatException.class, ()-> {cut.getAstronomicalObjectClassificationCode();});
+        String actualOut = exception.getMessage();
         //assert
-        assertEquals(expectedOut, result);
+        assertEquals(expectedOut, actualOut);
+
 
     }
 }

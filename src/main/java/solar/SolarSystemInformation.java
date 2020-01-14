@@ -61,13 +61,13 @@ public class SolarSystemInformation {
         this.password = password;
     }
 
-    public String getAstronomicalObjectClassificationCode() {
+    public String getAstronomicalObjectClassificationCode() throws InvalidFormatException {
         if (astronomicalObjectClassificationCode.matches("[S,P,M,D,A,C][0-9]{0,8}[A-Z][a-z]{2}[0-9]{1,3}[T,M,B,L]{1,2}")) {
-            return astronomicalObjectClassificationCode;
         } else {
-         
-        }
+            throw new InvalidFormatException("Invalid Format");
 
+        }
+            return astronomicalObjectClassificationCode;
         }
 
         public void setAstronomicalObjectClassificationCode (String astronomicalObjectClassificationCode){
