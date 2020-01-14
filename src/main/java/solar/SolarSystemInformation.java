@@ -1,10 +1,8 @@
 package solar;
 
 import java.math.BigDecimal;
-import java.util.regex.Pattern;
 
-public class SolarSystemInformation
-{
+public class SolarSystemInformation {
     private String userID;
     private String password;
     private String objectType;
@@ -16,22 +14,21 @@ public class SolarSystemInformation
     private BigDecimal semiMajorAxis;
     private BigDecimal mass;
 
-    public SolarSystemInformation(String userID, String password)
-    {
-        this.userID=userID;
-        if(userID.matches("[A-Z]{2}[0-9]{4}") && !userID.endsWith("0000") && password.matches("^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[@$!%*?&])[A-Za-z[0-9]@$!%*?&]{10,}$"))
-        {
+    public SolarSystemInformation(String userID, String password) {
+        this.userID = userID;
+
+        this.password = password;
+        if (userID.matches("[A-Z]{2}[0-9]{4}") && !userID.endsWith("0000") && password.matches("^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[@$!%*?&])[A-Za-z[0-9]@$!%*?&]{10,}$")) {
             setObjectName("Valid");
             setObjectType("Valid");
+        } else {
+            setObjectName("Not Allowed");
+            setObjectType("Not Allowed");
         }
-        else
-            {
-                setObjectName("Not Allowed");
-                setObjectType("Not Allowed");
-            }
 
 
     }
+
     public String getUserID() {
         return userID;
     }
@@ -55,6 +52,7 @@ public class SolarSystemInformation
     public void setObjectName(String objectName) {
         this.objectName = objectName;
     }
+
     public String getPassword() {
         return password;
     }
@@ -64,50 +62,57 @@ public class SolarSystemInformation
     }
 
     public String getAstronomicalObjectClassificationCode() {
-        return astronomicalObjectClassificationCode;
+        if (astronomicalObjectClassificationCode.matches("[S,P,M,D,A,C][0-9]{0,8}[A-Z][a-z]{2}[0-9]{1,3}[T,M,B,L]{1,2}")) {
+            return astronomicalObjectClassificationCode;
+        } else {
+            return InvalidFormatException
+        }
     }
 
-    private void setAstronomicalObjectClassificationCode(String astronomicalObjectClassificationCode) {
-        this.astronomicalObjectClassificationCode = astronomicalObjectClassificationCode;
+        public void setAstronomicalObjectClassificationCode (String astronomicalObjectClassificationCode){
+            this.astronomicalObjectClassificationCode = astronomicalObjectClassificationCode;
+
+        }
+
+
+        public Boolean getExists () {
+            return exists;
+        }
+
+        private void setExists (Boolean exists){
+            this.exists = exists;
+        }
+
+        public int getOrbitalPeriod () {
+            return orbitalPeriod;
+        }
+
+        private void setOrbitalPeriod ( int orbitalPeriod){
+            this.orbitalPeriod = orbitalPeriod;
+        }
+
+        public BigDecimal getRadius () {
+            return radius;
+        }
+
+        private void setRadius (BigDecimal radius){
+            this.radius = radius;
+        }
+
+        public BigDecimal getSemiMajorAxis () {
+            return semiMajorAxis;
+        }
+
+        private void setSemiMajorAxis (BigDecimal semiMajorAxis){
+            this.semiMajorAxis = semiMajorAxis;
+        }
+
+        public BigDecimal getMass () {
+            return mass;
+        }
+
+        private void setMass (BigDecimal mass){
+            this.mass = mass;
+        }
     }
 
-    public Boolean getExists() {
-        return exists;
-    }
-
-    private void setExists(Boolean exists) {
-        this.exists = exists;
-    }
-
-    public int getOrbitalPeriod() {
-        return orbitalPeriod;
-    }
-
-    private void setOrbitalPeriod(int orbitalPeriod) {
-        this.orbitalPeriod = orbitalPeriod;
-    }
-
-    public BigDecimal getRadius() {
-        return radius;
-    }
-
-    private void setRadius(BigDecimal radius) {
-        this.radius = radius;
-    }
-
-    public BigDecimal getSemiMajorAxis() {
-        return semiMajorAxis;
-    }
-
-    private void setSemiMajorAxis(BigDecimal semiMajorAxis) {
-        this.semiMajorAxis = semiMajorAxis;
-    }
-
-    public BigDecimal getMass() {
-        return mass;
-    }
-
-    private void setMass(BigDecimal mass) {
-        this.mass = mass;
-    }
-}
