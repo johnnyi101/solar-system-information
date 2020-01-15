@@ -4,6 +4,7 @@
     <list default="true" id="b3495607-c0e1-44f7-bf5e-2e7fd35e3c69" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/solar/FakeWSTrue.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/solar/FakeWSTrue.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/solar/SolarSystemInformation.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/solar/SolarSystemInformation.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/solar/SolarSystemInformationTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/solar/SolarSystemInformationTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/solar/FakeWSTrue.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/solar/FakeWSTrue.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/test-classes/solar/SolarSystemInformationTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/solar/SolarSystemInformationTest.class" afterDir="false" />
@@ -99,22 +100,22 @@
       <screen x="0" y="0" width="1280" height="984" />
     </state>
     <state x="445" y="209" key="#com.intellij.ide.util.MemberChooser/0.0.1280.984/1280.0.1280.984@0.0.1280.984" timestamp="1579087598119" />
-    <state width="1237" height="263" key="GridCell.Tab.0.bottom" timestamp="1579091024322">
+    <state width="1237" height="263" key="GridCell.Tab.0.bottom" timestamp="1579096977680">
       <screen x="0" y="0" width="1280" height="984" />
     </state>
-    <state width="1237" height="263" key="GridCell.Tab.0.bottom/0.0.1280.984/1280.0.1280.984@0.0.1280.984" timestamp="1579091024322" />
-    <state width="1237" height="263" key="GridCell.Tab.0.center" timestamp="1579091024322">
+    <state width="1237" height="263" key="GridCell.Tab.0.bottom/0.0.1280.984/1280.0.1280.984@0.0.1280.984" timestamp="1579096977680" />
+    <state width="1237" height="263" key="GridCell.Tab.0.center" timestamp="1579096977680">
       <screen x="0" y="0" width="1280" height="984" />
     </state>
-    <state width="1237" height="263" key="GridCell.Tab.0.center/0.0.1280.984/1280.0.1280.984@0.0.1280.984" timestamp="1579091024322" />
-    <state width="1237" height="263" key="GridCell.Tab.0.left" timestamp="1579091024322">
+    <state width="1237" height="263" key="GridCell.Tab.0.center/0.0.1280.984/1280.0.1280.984@0.0.1280.984" timestamp="1579096977680" />
+    <state width="1237" height="263" key="GridCell.Tab.0.left" timestamp="1579096977680">
       <screen x="0" y="0" width="1280" height="984" />
     </state>
-    <state width="1237" height="263" key="GridCell.Tab.0.left/0.0.1280.984/1280.0.1280.984@0.0.1280.984" timestamp="1579091024322" />
-    <state width="1237" height="263" key="GridCell.Tab.0.right" timestamp="1579091024322">
+    <state width="1237" height="263" key="GridCell.Tab.0.left/0.0.1280.984/1280.0.1280.984@0.0.1280.984" timestamp="1579096977680" />
+    <state width="1237" height="263" key="GridCell.Tab.0.right" timestamp="1579096977680">
       <screen x="0" y="0" width="1280" height="984" />
     </state>
-    <state width="1237" height="263" key="GridCell.Tab.0.right/0.0.1280.984/1280.0.1280.984@0.0.1280.984" timestamp="1579091024322" />
+    <state width="1237" height="263" key="GridCell.Tab.0.right/0.0.1280.984/1280.0.1280.984@0.0.1280.984" timestamp="1579096977680" />
     <state x="336" y="317" key="com.intellij.ide.util.TipDialog" timestamp="1579080456187">
       <screen x="0" y="0" width="1280" height="984" />
     </state>

@@ -32,11 +32,22 @@ public class SolarSystemInformation {
         if (astronomicalObjectClassificationCode.matches("[S,P,M,D,A,C][0-9]{0,8}[A-Z][a-z]{2}[0-9]{1,3}[T,M,B,L]{1,2}"))
         {
           setAstronomicalObjectClassificationCode(astronomicalObjectClassificationCode);
+          FakeWSTrue fwst = new FakeWSTrue();
+          String returned = fwst.getStatusInfo(astronomicalObjectClassificationCode);
+          if(returned.matches("[S,P,M,D,A,C][0-9]{0,8}[A-Z][a-z]{2}[0-9]{1,3}[T,M,B,L]{1,2}[,][A-Z][a-z]*[,][0-9]{0,8}[A-Z][a-z]*[,][0-9]*[,][0-9]*[,][0-9]*[,][0-9]*"))
+          {
+
+          }
+          if(returned.equals("No such classification or SMA code"))
+          { }
+          else
+          {throw new InvalidFormatException("No such classification or SMA code");}
         }
         else
             {
             throw new InvalidFormatException("Invalid Format");
             }
+
 
     }
 

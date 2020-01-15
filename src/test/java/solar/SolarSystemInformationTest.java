@@ -150,7 +150,9 @@ public class SolarSystemInformationTest {
         String expectedOut = "Invalid Format";
         SolarSystemInformation cut = new SolarSystemInformation(inputID, inputPassword);
         //act
-        Exception exception = assertThrows(InvalidFormatException.class, ()-> {cut.initialiseAOCDetails(inputAOC);});
+        Exception exception = assertThrows(InvalidFormatException.class, () -> {
+            cut.initialiseAOCDetails(inputAOC);
+        });
         String actualOut = exception.getMessage();
         //assert
         assertEquals(expectedOut, actualOut);
@@ -158,10 +160,9 @@ public class SolarSystemInformationTest {
 
     }
 
-//////////////////////////////////////////////////Fake Tests/////////////////////////////////////////////////////////
+    //////////////////////////////////////////////////Fake Tests/////////////////////////////////////////////////////////
     @Test
-    public void boolean_true_returned_if_credentials_are_correct()
-    {
+    public void boolean_true_returned_if_credentials_are_correct() {
         //arrange
         String inputID = "AB1234";
         String inputPassword = "abcD1234!@";
@@ -172,9 +173,9 @@ public class SolarSystemInformationTest {
         //assert
         assertEquals(expectedOut, actualOut);
     }
+
     @Test
-    public void boolean_false_returned_if_credentials_are_wrong()
-    {
+    public void boolean_false_returned_if_credentials_are_wrong() {
         //arrange
         String inputID = "AB1234";
         String inputPassword = "abcD1234!@";
@@ -185,16 +186,71 @@ public class SolarSystemInformationTest {
         //assert
         assertEquals(expectedOut, actualOut);
     }
+
     @Test
-    public void string_returned_from_WS_when_auth_is_true()
-    {
+    public void string_returned_from_WS_when_auth_is_true() {
         //arrange
         String inputAOC = "SSun27TL";
-        String expectedOut = "This,is,a,test,string";
+        String expectedOut = "SSun27TL,Earth,23,23,23,a";
         FakeWSTrue fwst = new FakeWSTrue();
         //act
         String actualOut = fwst.getStatusInfo(inputAOC);
         //assert
         assertEquals(expectedOut, actualOut);
     }
+
+    @Test
+    public void AOC_initialiser_throws_acception_if_not_correct_format() throws InvalidFormatException
+    {
+        //arrange
+        String inputID = "AB1234";
+        String inputPassword = "abcD1234!@";
+        String inputAOC = "SSun27TL";
+        String expectedOut = "No such classification or SMA code";
+        SolarSystemInformation cut = new SolarSystemInformation(inputID, inputPassword);
+        //act
+        Exception exception = assertThrows(InvalidFormatException.class, () -> {
+            cut.initialiseAOCDetails(inputAOC);
+        });
+        String actualOut = exception.getMessage();
+        //assert
+        assertEquals(expectedOut, actualOut);
+
+    }
+
+
+
+
+    /*@Test
+    public void string_returned_separated_into_six_parts() throws InvalidFormatException {
+        //arrange
+        String inputID = "AB1234";
+        String inputPassword = "abcD1234!@";
+        String inputAOC = "SSun27TL";
+        String expectedp1 = "This";
+        String expectedp2 = "is";
+        String expectedp3 = "a";
+        String expectedp4 = "test";
+        String expectedp5 = "string";
+        String expectedp6 = "thanks";
+
+        SolarSystemInformation cut = new SolarSystemInformation(inputID, inputPassword);
+        //act
+        String actual1 = cut.initialiseAOCDetails(inputAOC).listOfValues[0];
+        String actual2 = cut.initialiseAOCDetails(inputAOC).listOfValues[1];
+        String actual3 = cut.initialiseAOCDetails(inputAOC).listOfValues[2];
+        String actual4 = cut.initialiseAOCDetails(inputAOC).listOfValues[3];
+        String actual5 = cut.initialiseAOCDetails(inputAOC).listOfValues[4];
+        String actual6 = cut.initialiseAOCDetails(inputAOC).listOfValues[5];
+        //assert
+        assertEquals(expectedp1, actual1);
+        assertEquals(expectedp2, actual2);
+        assertEquals(expectedp3, actual3);
+        assertEquals(expectedp4, actual4);
+        assertEquals(expectedp5, actual5);
+        assertEquals(expectedp6, actual6);
+    }*/
+
+
+
 }
