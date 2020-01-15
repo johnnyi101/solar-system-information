@@ -86,10 +86,10 @@ public class SolarSystemInformation {
         this.password = password;
     }
 
-    private String getAstronomicalObjectClassificationCode() { return astronomicalObjectClassificationCode;
+    public String getAstronomicalObjectClassificationCode() { return astronomicalObjectClassificationCode;
     }
 
-    void setAstronomicalObjectClassificationCode(String astronomicalObjectClassificationCode){
+    private void setAstronomicalObjectClassificationCode(String astronomicalObjectClassificationCode){
             this.astronomicalObjectClassificationCode = astronomicalObjectClassificationCode;
     }
     public Boolean getExists () {

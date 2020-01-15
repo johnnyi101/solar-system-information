@@ -133,7 +133,7 @@ public class SolarSystemInformationTest {
         String inputAOC = "SSun27TL";
         String expectedOut = "SSun27TL";
         SolarSystemInformation cut = new SolarSystemInformation(inputID, inputPassword);
-        cut.setAstronomicalObjectClassificationCode(inputAOC);
+        cut.initialiseAOCDetails(inputAOC);
         //act
         String result = cut.getAstronomicalObjectClassificationCode();
         //assert
@@ -149,30 +149,15 @@ public class SolarSystemInformationTest {
         String inputAOC = "s244gfdgf";
         String expectedOut = "Invalid Format";
         SolarSystemInformation cut = new SolarSystemInformation(inputID, inputPassword);
-        cut.setAstronomicalObjectClassificationCode(inputAOC);
         //act
-        Exception exception = assertThrows(InvalidFormatException.class, ()-> {cut.getAstronomicalObjectClassificationCode();});
+        Exception exception = assertThrows(InvalidFormatException.class, ()-> {cut.initialiseAOCDetails(inputAOC);});
         String actualOut = exception.getMessage();
         //assert
         assertEquals(expectedOut, actualOut);
 
 
     }
-    @Test
-    public void objectName_must_be_capitalised_if_not_error_is_thrown(){
-        //arrange
-        String inputID = "AB1234";
-        String inputPassword = "abcD1234!@";
-        String inputObjectType = "Star";
-        String expectedOut = "Invalid Format";
-        SolarSystemInformation cut = new SolarSystemInformation(inputID, inputPassword);
-        cut.setObjectType(inputObjectType);
-        //act
-        Exception exception = assertThrows(InvalidFormatException.class, ()-> {cut.getAstronomicalObjectClassificationCode();});
-        String actualOut = exception.getMessage();
-        //assert
-        assertEquals(expectedOut, actualOut);
-    }
+
 //////////////////////////////////////////////////Mocking Tests/////////////////////////////////////////////////////////
     @Test
     public void test_placeholder()
