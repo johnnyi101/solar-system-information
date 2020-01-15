@@ -8,6 +8,6 @@ public class FakeWSTrue implements IAstroService {
 
     @Override
     public String getStatusInfo(String astronomicalObjectClassificationCode) {
-        return null;
+        return "This,is,a,test,string";
     }
 }

@@ -165,7 +165,6 @@ public class SolarSystemInformationTest {
         //arrange
         String inputID = "AB1234";
         String inputPassword = "abcD1234!@";
-        String inputAOC = "SSun27TL";
         boolean expectedOut = true;
         FakeWSTrue fwst = new FakeWSTrue();
         //act
@@ -179,11 +178,22 @@ public class SolarSystemInformationTest {
         //arrange
         String inputID = "AB1234";
         String inputPassword = "abcD1234!@";
-        String inputAOC = "SSun27TL";
         boolean expectedOut = false;
-        FakeWSFalse fwst = new FakeWSFalse();
+        FakeWSFalse fwsf = new FakeWSFalse();
         //act
-        boolean actualOut = fwst.authenticate(inputID, inputPassword);
+        boolean actualOut = fwsf.authenticate(inputID, inputPassword);
+        //assert
+        assertEquals(expectedOut, actualOut);
+    }
+    @Test
+    public void string_returned_from_WS_when_auth_is_true()
+    {
+        //arrange
+        String inputAOC = "SSun27TL";
+        String expectedOut = "This,is,a,test,string";
+        FakeWSTrue fwst = new FakeWSTrue();
+        //act
+        String actualOut = fwst.getStatusInfo(inputAOC);
         //assert
         assertEquals(expectedOut, actualOut);
     }
