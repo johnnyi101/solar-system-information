@@ -191,7 +191,7 @@ public class SolarSystemInformationTest {
     public void string_returned_from_WS_when_auth_is_true() {
         //arrange
         String inputAOC = "SSun27TL";
-        String expectedOut = "SSun27TL,Earth,23,23,23,a";
+        String expectedOut = "SSun27TL,Earth,23,23,23,23";
         FakeWSTrue fwst = new FakeWSTrue();
         //act
         String actualOut = fwst.getStatusInfo(inputAOC);
@@ -205,7 +205,7 @@ public class SolarSystemInformationTest {
         //arrange
         String inputID = "AB1234";
         String inputPassword = "abcD1234!@";
-        String inputAOC = "SSun27TL";
+        String inputAOC = "SSun00TL";
         String expectedOut = "No such classification or SMA code";
         SolarSystemInformation cut = new SolarSystemInformation(inputID, inputPassword);
         //act

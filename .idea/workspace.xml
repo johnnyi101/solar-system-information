@@ -6,7 +6,7 @@
       <change beforePath="$PROJECT_DIR$/src/main/java/solar/FakeWSTrue.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/solar/FakeWSTrue.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/solar/SolarSystemInformation.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/solar/SolarSystemInformation.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/solar/SolarSystemInformationTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/solar/SolarSystemInformationTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/solar/FakeWSTrue.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/solar/FakeWSTrue.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/solar/FakeWSTrueWithBadFormat.class" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/target/test-classes/solar/SolarSystemInformationTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/solar/SolarSystemInformationTest.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -48,7 +48,7 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
   </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="JUnit.SolarSystemInformationTest.AOC_getter_validation">
     <configuration name="SolarSystemInformationTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="solar-system-information" />
       <extension name="coverage">
@@ -64,8 +64,25 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="SolarSystemInformationTest.AOC_getter_validation" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="solar-system-information" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="solar.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="solar" />
+      <option name="MAIN_CLASS_NAME" value="solar.SolarSystemInformationTest" />
+      <option name="METHOD_NAME" value="AOC_getter_validation" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.SolarSystemInformationTest.AOC_getter_validation" />
         <item itemvalue="JUnit.SolarSystemInformationTest" />
       </list>
     </recent_temporary>
@@ -100,22 +117,38 @@
       <screen x="0" y="0" width="1280" height="984" />
     </state>
     <state x="445" y="209" key="#com.intellij.ide.util.MemberChooser/0.0.1280.984/1280.0.1280.984@0.0.1280.984" timestamp="1579087598119" />
-    <state width="1237" height="263" key="GridCell.Tab.0.bottom" timestamp="1579096977680">
+    <state width="1237" height="325" key="GridCell.Tab.0.bottom" timestamp="1579100839098">
       <screen x="0" y="0" width="1280" height="984" />
     </state>
-    <state width="1237" height="263" key="GridCell.Tab.0.bottom/0.0.1280.984/1280.0.1280.984@0.0.1280.984" timestamp="1579096977680" />
-    <state width="1237" height="263" key="GridCell.Tab.0.center" timestamp="1579096977680">
+    <state width="1237" height="325" key="GridCell.Tab.0.bottom/0.0.1280.984/1280.0.1280.984@0.0.1280.984" timestamp="1579100839098" />
+    <state width="1237" height="325" key="GridCell.Tab.0.center" timestamp="1579100839098">
       <screen x="0" y="0" width="1280" height="984" />
     </state>
-    <state width="1237" height="263" key="GridCell.Tab.0.center/0.0.1280.984/1280.0.1280.984@0.0.1280.984" timestamp="1579096977680" />
-    <state width="1237" height="263" key="GridCell.Tab.0.left" timestamp="1579096977680">
+    <state width="1237" height="325" key="GridCell.Tab.0.center/0.0.1280.984/1280.0.1280.984@0.0.1280.984" timestamp="1579100839098" />
+    <state width="1237" height="325" key="GridCell.Tab.0.left" timestamp="1579100839098">
       <screen x="0" y="0" width="1280" height="984" />
     </state>
-    <state width="1237" height="263" key="GridCell.Tab.0.left/0.0.1280.984/1280.0.1280.984@0.0.1280.984" timestamp="1579096977680" />
-    <state width="1237" height="263" key="GridCell.Tab.0.right" timestamp="1579096977680">
+    <state width="1237" height="325" key="GridCell.Tab.0.left/0.0.1280.984/1280.0.1280.984@0.0.1280.984" timestamp="1579100839098" />
+    <state width="1237" height="325" key="GridCell.Tab.0.right" timestamp="1579100839098">
       <screen x="0" y="0" width="1280" height="984" />
     </state>
-    <state width="1237" height="263" key="GridCell.Tab.0.right/0.0.1280.984/1280.0.1280.984@0.0.1280.984" timestamp="1579096977680" />
+    <state width="1237" height="325" key="GridCell.Tab.0.right/0.0.1280.984/1280.0.1280.984@0.0.1280.984" timestamp="1579100839098" />
+    <state width="1237" height="325" key="GridCell.Tab.1.bottom" timestamp="1579100839098">
+      <screen x="0" y="0" width="1280" height="984" />
+    </state>
+    <state width="1237" height="325" key="GridCell.Tab.1.bottom/0.0.1280.984/1280.0.1280.984@0.0.1280.984" timestamp="1579100839098" />
+    <state width="1237" height="325" key="GridCell.Tab.1.center" timestamp="1579100839098">
+      <screen x="0" y="0" width="1280" height="984" />
+    </state>
+    <state width="1237" height="325" key="GridCell.Tab.1.center/0.0.1280.984/1280.0.1280.984@0.0.1280.984" timestamp="1579100839098" />
+    <state width="1237" height="325" key="GridCell.Tab.1.left" timestamp="1579100839098">
+      <screen x="0" y="0" width="1280" height="984" />
+    </state>
+    <state width="1237" height="325" key="GridCell.Tab.1.left/0.0.1280.984/1280.0.1280.984@0.0.1280.984" timestamp="1579100839098" />
+    <state width="1237" height="325" key="GridCell.Tab.1.right" timestamp="1579100839098">
+      <screen x="0" y="0" width="1280" height="984" />
+    </state>
+    <state width="1237" height="325" key="GridCell.Tab.1.right/0.0.1280.984/1280.0.1280.984@0.0.1280.984" timestamp="1579100839098" />
     <state x="336" y="317" key="com.intellij.ide.util.TipDialog" timestamp="1579080456187">
       <screen x="0" y="0" width="1280" height="984" />
     </state>
@@ -124,5 +157,16 @@
       <screen x="0" y="0" width="1280" height="984" />
     </state>
     <state x="382" y="112" key="refactoring.ChangeSignatureDialog/0.0.1280.984/1280.0.1280.984@0.0.1280.984" timestamp="1579012248729" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/test/java/solar/SolarSystemInformationTest.java</url>
+          <line>134</line>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>
