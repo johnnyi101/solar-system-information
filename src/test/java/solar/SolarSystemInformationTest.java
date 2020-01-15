@@ -158,10 +158,33 @@ public class SolarSystemInformationTest {
 
     }
 
-//////////////////////////////////////////////////Mocking Tests/////////////////////////////////////////////////////////
+//////////////////////////////////////////////////Fake Tests/////////////////////////////////////////////////////////
     @Test
-    public void test_placeholder()
+    public void boolean_true_returned_if_credentials_are_correct()
     {
-
+        //arrange
+        String inputID = "AB1234";
+        String inputPassword = "abcD1234!@";
+        String inputAOC = "SSun27TL";
+        boolean expectedOut = true;
+        FakeWSTrue fwst = new FakeWSTrue();
+        //act
+        boolean actualOut = fwst.authenticate(inputID, inputPassword);
+        //assert
+        assertEquals(expectedOut, actualOut);
+    }
+    @Test
+    public void boolean_false_returned_if_credentials_are_wrong()
+    {
+        //arrange
+        String inputID = "AB1234";
+        String inputPassword = "abcD1234!@";
+        String inputAOC = "SSun27TL";
+        boolean expectedOut = false;
+        FakeWSFalse fwst = new FakeWSFalse();
+        //act
+        boolean actualOut = fwst.authenticate(inputID, inputPassword);
+        //assert
+        assertEquals(expectedOut, actualOut);
     }
 }
