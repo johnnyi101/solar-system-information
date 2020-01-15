@@ -16,7 +16,6 @@ public class SolarSystemInformation {
 
     public SolarSystemInformation(String userID, String password) {
         this.userID = userID;
-
         this.password = password;
         if (userID.matches("[A-Z]{2}[0-9]{4}") && !userID.endsWith("0000") && password.matches("^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[@$!%*?&])[A-Za-z[0-9]@$!%*?&]{10,}$")) {
             setObjectName("Valid");
@@ -29,6 +28,32 @@ public class SolarSystemInformation {
 
     }
 
+    public void initialiseAOCDetails(String astronomicalObjectClassificationCode) throws InvalidFormatException {
+        if (astronomicalObjectClassificationCode.matches("[S,P,M,D,A,C][0-9]{0,8}[A-Z][a-z]{2}[0-9]{1,3}[T,M,B,L]{1,2}"))
+        {
+          setAstronomicalObjectClassificationCode(astronomicalObjectClassificationCode);
+        }
+        else
+            {
+            throw new InvalidFormatException("Invalid Format");
+            }
+
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//////////////////////////////////////////////////////////Getters and Setters///////////////////////////////////////////
     public String getUserID() {
         return userID;
     }
@@ -61,37 +86,24 @@ public class SolarSystemInformation {
         this.password = password;
     }
 
-    public String getAstronomicalObjectClassificationCode() throws InvalidFormatException {
-        if (astronomicalObjectClassificationCode.matches("[S,P,M,D,A,C][0-9]{0,8}[A-Z][a-z]{2}[0-9]{1,3}[T,M,B,L]{1,2}")) {
-        } else {
-            throw new InvalidFormatException("Invalid Format");
+    private String getAstronomicalObjectClassificationCode() { return astronomicalObjectClassificationCode;
+    }
 
-        }
-            return astronomicalObjectClassificationCode;
-        }
-
-        public void setAstronomicalObjectClassificationCode (String astronomicalObjectClassificationCode){
+    void setAstronomicalObjectClassificationCode(String astronomicalObjectClassificationCode){
             this.astronomicalObjectClassificationCode = astronomicalObjectClassificationCode;
+    }
+    public Boolean getExists () {
+        return exists;
+    }
 
-        }
-
-
-        public Boolean getExists () {
-            return exists;
-        }
-
-        private void setExists (Boolean exists){
+    private void setExists (Boolean exists){
             this.exists = exists;
-        }
+        }public int getOrbitalPeriod () { return orbitalPeriod;
+    }
 
-        public int getOrbitalPeriod () {
-            return orbitalPeriod;
-        }
-
-        private void setOrbitalPeriod ( int orbitalPeriod){
+    private void setOrbitalPeriod ( int orbitalPeriod){
             this.orbitalPeriod = orbitalPeriod;
         }
-
         public BigDecimal getRadius () {
             return radius;
         }
