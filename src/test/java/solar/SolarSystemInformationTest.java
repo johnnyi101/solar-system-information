@@ -1,7 +1,5 @@
 package solar;
 
-import org.junit.Before;
-
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
@@ -10,23 +8,20 @@ import static org.easymock.EasyMock.expect;
 import static org.easymock.EasyMock.expectLastCall;
 import static org.easymock.EasyMock.replay;
 import static org.easymock.EasyMock.verify;
-import org.easymock.EasyMock;
 
-public class SolarSystemInformationTest {
+public class SolarSystemInformationTest
+{
     IAstroService mockAstroService;
-
-
     ///////////////////////////////////Set-Up////////////////////////////////////////////////////////////////////////////
     @BeforeEach
-    void setUp() {
+    void setUp()
+    {
         mockAstroService = createMock(IAstroService.class);
     }
-
-
-
     ///////////////////////////////////User ID and password validation tests///////////////////////////////////////////////
     @Test
-    public void a_valid_user_idlength_is_accepted() {
+    public void a_valid_user_idlength_is_accepted()
+    {
         //arrange
         String inputID = "AB1234";
         String inputPassword = "abcD1234!@";
@@ -41,9 +36,9 @@ public class SolarSystemInformationTest {
         assertEquals(expectedObjectName, resultON);
         assertEquals(expectedObjectType, resultOT);
     }
-
     @Test
-    public void id_with_two_capital_letters_at_start_is_accepted() {
+    public void id_with_two_capital_letters_at_start_is_accepted()
+    {
         //arrange
         String inputID = "AB1234";
         String inputPassword = "abcD1234!@";
@@ -58,9 +53,9 @@ public class SolarSystemInformationTest {
         assertEquals(expectedObjectName, resultON);
         assertEquals(expectedObjectType, resultOT);
     }
-
     @Test
-    public void id_with_four_numbers_at_end_is_accepted() {
+    public void id_with_four_numbers_at_end_is_accepted()
+    {
         //arrange
         String inputID = "AB1234";
         String inputPassword = "abcD1234!@";
@@ -75,9 +70,9 @@ public class SolarSystemInformationTest {
         assertEquals(expectedObjectName, resultON);
         assertEquals(expectedObjectType, resultOT);
     }
-
     @Test
-    public void erroneous_entries_are_not_allowed() {
+    public void erroneous_entries_are_not_allowed()
+    {
         //arrange
         String inputID = "1B12/4";
         String inputPassword = "abcD1234!@";
@@ -94,7 +89,8 @@ public class SolarSystemInformationTest {
     }
 
     @Test
-    public void user_ID_cannot_end_in_four_zeros() {
+    public void user_ID_cannot_end_in_four_zeros()
+    {
         //arrange
         String inputID = "AB0000";
         String inputPassword = "abcD1234!@";
@@ -109,9 +105,9 @@ public class SolarSystemInformationTest {
         assertEquals(expectedObjectName, resultON);
         assertEquals(expectedObjectType, resultOT);
     }
-
     @Test
-    public void password_must_be_at_least_ten_characters_in_length() {
+    public void password_must_be_at_least_ten_characters_in_length()
+    {
         //arrange
         String inputID = "ABCD1234!";
         String inputPassword = "abcD1234!@";
@@ -126,7 +122,6 @@ public class SolarSystemInformationTest {
         assertEquals(expectedObjectName, resultON);
         assertEquals(expectedObjectType, resultOT);
     }
-
     @Test
     public void password_must_have_one_upper_lower_special() {
         //arrange
@@ -143,7 +138,6 @@ public class SolarSystemInformationTest {
         assertEquals(expectedObjectName, resultON);
         assertEquals(expectedObjectType, resultOT);
     }
-
     ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     @Test
     public void AOC_getter_validation_returns_info_when_code_format_good() throws InvalidFormatException {
@@ -163,8 +157,6 @@ public class SolarSystemInformationTest {
         //assert
         assertEquals(expectedOutAOC, resultAOC);
         assertEquals(expectedOutInfo, resultInfo);
-
-
     }
     @Test
     public void AOC_getter_validation_doesnt_return_info_when_code_format_bad() throws InvalidFormatException {
@@ -177,9 +169,6 @@ public class SolarSystemInformationTest {
         //assert
         assertThrows(InvalidFormatException.class, () -> {
             cut.initialiseAOCDetails(inputAOC);});
-
-
-
     }
     @Test
     public void error_thrown_when_info_returned_in_wrong_format() throws InvalidFormatException {
@@ -200,7 +189,6 @@ public class SolarSystemInformationTest {
         assertThrows(InvalidFormatException.class, () -> {
             cut.initialiseAOCDetails(mockAstroService.getStatusInfo(inputAOC));});
     }
-
     @Test
     public void AOC_getter_validation_bad_format_gets_error() throws InvalidFormatException {
         //arrange
@@ -208,7 +196,6 @@ public class SolarSystemInformationTest {
         String inputPassword = "abcD1234!@";
         String inputAOC = "s244gfdgf";
         String expectedOut = "Invalid Format";
-
         SolarSystemInformation cut = new SolarSystemInformation(inputID, inputPassword,mockAstroService);
         //act
         Exception exception = assertThrows(InvalidFormatException.class, () -> {
@@ -217,10 +204,7 @@ public class SolarSystemInformationTest {
         String actualOut = exception.getMessage();
         //assert
         assertEquals(expectedOut, actualOut);
-
-
     }
-
     @Test
     public void boolean_true_returned_if_credentials_are_correct() {
         //arrange
@@ -233,9 +217,7 @@ public class SolarSystemInformationTest {
         //assert
         assertTrue(actual);
         verify(mockAstroService);
-
     }
-
     @Test
     public void boolean_false_returned_if_credentials_are_wrong() {
         //arrange
@@ -248,9 +230,7 @@ public class SolarSystemInformationTest {
         //assert
         assertFalse(actual);
         verify(mockAstroService);
-
     }
-
     @Test
     public void string_returned_from_WS_when_auth_is_true() {
         //arrange
@@ -263,11 +243,5 @@ public class SolarSystemInformationTest {
         //assert
         assertEquals(expected, actual);
         verify(mockAstroService);
-
     }
-
-    
-
-
-
 }
