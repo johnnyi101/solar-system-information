@@ -13,8 +13,9 @@ public class SolarSystemInformation {
     private BigDecimal radius;
     private BigDecimal semiMajorAxis;
     private BigDecimal mass;
-
-    public SolarSystemInformation(String userID, String password) {
+    private IAstroService mockAstroService;
+    public SolarSystemInformation(String userID, String password, IAstroService mockAstroService) {
+        this.mockAstroService = mockAstroService;
         this.userID = userID;
         this.password = password;
         if (userID.matches("[A-Z]{2}[0-9]{4}") && !userID.endsWith("0000") && password.matches("^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[@$!%*?&])[A-Za-z[0-9]@$!%*?&]{10,}$")) {
@@ -34,8 +35,8 @@ public class SolarSystemInformation {
         }
 
         setAstronomicalObjectClassificationCode(astronomicalObjectClassificationCode);
-        FakeWSTrue fwst = new FakeWSTrue();
-        String returned = fwst.getStatusInfo(astronomicalObjectClassificationCode);
+
+        String returned = mockAstroService.getStatusInfo(astronomicalObjectClassificationCode);
 
         if (!returned.matches("[S,P,M,D,A,C][0-9]{0,8}[A-Z][a-z]{2}[0-9]{1,3}[T,M,B,L]{1,2}[,][A-Z][a-z]*[,][0-9]{0,8}[A-Z][a-z]*[,][0-9]*[,][0-9]*[,][0-9]*[,][0-9]*")) {
             throw new InvalidFormatException("No such classification or SMA code");

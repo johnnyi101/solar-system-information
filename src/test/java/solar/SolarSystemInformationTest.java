@@ -1,9 +1,29 @@
 package solar;
 
+import org.junit.Before;
+
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
+import static org.easymock.EasyMock.createMock;
+import static org.easymock.EasyMock.expect;
+import static org.easymock.EasyMock.expectLastCall;
+import static org.easymock.EasyMock.replay;
+import static org.easymock.EasyMock.verify;
+import org.easymock.EasyMock;
 
 public class SolarSystemInformationTest {
+    IAstroService mockAstroService;
+
+
+    ///////////////////////////////////Set-Up////////////////////////////////////////////////////////////////////////////
+    @BeforeEach
+    void setUp() {
+        mockAstroService = createMock(IAstroService.class);
+    }
+
+
+
     ///////////////////////////////////User ID and password validation tests///////////////////////////////////////////////
     @Test
     public void a_valid_user_idlength_is_accepted() {
@@ -13,7 +33,7 @@ public class SolarSystemInformationTest {
         String inputAOC = "SSun27TL";
         String expectedObjectType = "Valid";
         String expectedObjectName = "Valid";
-        SolarSystemInformation cut = new SolarSystemInformation(inputID, inputPassword);
+        SolarSystemInformation cut = new SolarSystemInformation(inputID, inputPassword,mockAstroService);
         //act
         String resultOT = cut.getObjectType();
         String resultON = cut.getObjectName();
@@ -30,7 +50,7 @@ public class SolarSystemInformationTest {
         String inputAOC = "SSun27TL";
         String expectedObjectType = "Valid";
         String expectedObjectName = "Valid";
-        SolarSystemInformation cut = new SolarSystemInformation(inputID, inputPassword);
+        SolarSystemInformation cut = new SolarSystemInformation(inputID, inputPassword,mockAstroService);
         //act
         String resultOT = cut.getObjectType();
         String resultON = cut.getObjectName();
@@ -47,7 +67,7 @@ public class SolarSystemInformationTest {
         String inputAOC = "SSun27TL";
         String expectedObjectType = "Valid";
         String expectedObjectName = "Valid";
-        SolarSystemInformation cut = new SolarSystemInformation(inputID, inputPassword);
+        SolarSystemInformation cut = new SolarSystemInformation(inputID, inputPassword,mockAstroService);
         //act
         String resultOT = cut.getObjectType();
         String resultON = cut.getObjectName();
@@ -64,7 +84,7 @@ public class SolarSystemInformationTest {
         String inputAOC = "SSun27TL";
         String expectedObjectType = "Not Allowed";
         String expectedObjectName = "Not Allowed";
-        SolarSystemInformation cut = new SolarSystemInformation(inputID, inputPassword);
+        SolarSystemInformation cut = new SolarSystemInformation(inputID, inputPassword,mockAstroService);
         //act
         String resultOT = cut.getObjectType();
         String resultON = cut.getObjectName();
@@ -81,7 +101,7 @@ public class SolarSystemInformationTest {
         String inputAOC = "SSun27TL";
         String expectedObjectType = "Not Allowed";
         String expectedObjectName = "Not Allowed";
-        SolarSystemInformation cut = new SolarSystemInformation(inputID, inputPassword);
+        SolarSystemInformation cut = new SolarSystemInformation(inputID, inputPassword,mockAstroService);
         //act
         String resultOT = cut.getObjectType();
         String resultON = cut.getObjectName();
@@ -98,7 +118,7 @@ public class SolarSystemInformationTest {
         String inputAOC = "SSun27TL";
         String expectedObjectType = "Not Allowed";
         String expectedObjectName = "Not Allowed";
-        SolarSystemInformation cut = new SolarSystemInformation(inputID, inputPassword);
+        SolarSystemInformation cut = new SolarSystemInformation(inputID, inputPassword,mockAstroService);
         //act
         String resultOT = cut.getObjectType();
         String resultON = cut.getObjectName();
@@ -115,7 +135,7 @@ public class SolarSystemInformationTest {
         String inputAOC = "SSun27TL";
         String expectedObjectType = "Valid";
         String expectedObjectName = "Valid";
-        SolarSystemInformation cut = new SolarSystemInformation(inputID, inputPassword);
+        SolarSystemInformation cut = new SolarSystemInformation(inputID, inputPassword,mockAstroService);
         //act
         String resultOT = cut.getObjectType();
         String resultON = cut.getObjectName();
@@ -132,7 +152,7 @@ public class SolarSystemInformationTest {
         String inputPassword = "abcD1234!@";
         String inputAOC = "SSun27TL";
         String expectedOut = "SSun27TL";
-        SolarSystemInformation cut = new SolarSystemInformation(inputID, inputPassword);
+        SolarSystemInformation cut = new SolarSystemInformation(inputID, inputPassword,mockAstroService);
         cut.initialiseAOCDetails(inputAOC);
         //act
         String result = cut.getAstronomicalObjectClassificationCode();
@@ -148,7 +168,7 @@ public class SolarSystemInformationTest {
         String inputPassword = "abcD1234!@";
         String inputAOC = "s244gfdgf";
         String expectedOut = "Invalid Format";
-        SolarSystemInformation cut = new SolarSystemInformation(inputID, inputPassword);
+        SolarSystemInformation cut = new SolarSystemInformation(inputID, inputPassword,mockAstroService);
         //act
         Exception exception = assertThrows(InvalidFormatException.class, () -> {
             cut.initialiseAOCDetails(inputAOC);
@@ -167,11 +187,12 @@ public class SolarSystemInformationTest {
         String inputID = "AB1234";
         String inputPassword = "abcD1234!@";
         boolean expectedOut = true;
-        FakeWSTrue fwst = new FakeWSTrue();
+
+
         //act
-        boolean actualOut = fwst.authenticate(inputID, inputPassword);
+
         //assert
-        assertEquals(expectedOut, actualOut);
+
     }
 
     @Test
@@ -180,11 +201,11 @@ public class SolarSystemInformationTest {
         String inputID = "AB1234";
         String inputPassword = "abcD1234!@";
         boolean expectedOut = false;
-        FakeWSFalse fwsf = new FakeWSFalse();
+
         //act
-        boolean actualOut = fwsf.authenticate(inputID, inputPassword);
+
         //assert
-        assertEquals(expectedOut, actualOut);
+
     }
 
     @Test
@@ -192,11 +213,11 @@ public class SolarSystemInformationTest {
         //arrange
         String inputAOC = "SSun27TL";
         String expectedOut = "SSun27TL,Earth,23,23,23,23";
-        FakeWSTrue fwst = new FakeWSTrue();
+
         //act
-        String actualOut = fwst.getStatusInfo(inputAOC);
+
         //assert
-        assertEquals(expectedOut, actualOut);
+
     }
 
     @Test
@@ -207,7 +228,7 @@ public class SolarSystemInformationTest {
         String inputPassword = "abcD1234!@";
         String inputAOC = "SSun00TL";
         String expectedOut = "No such classification or SMA code";
-        SolarSystemInformation cut = new SolarSystemInformation(inputID, inputPassword);
+        SolarSystemInformation cut = new SolarSystemInformation(inputID, inputPassword,mockAstroService);
         //act
         Exception exception = assertThrows(InvalidFormatException.class, () -> {
             cut.initialiseAOCDetails(inputAOC);
