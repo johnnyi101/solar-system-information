@@ -198,7 +198,7 @@ public class SolarSystemInformationTest {
         //assert
         assertEquals(expectedOutAOC, resultAOC);
         assertThrows(InvalidFormatException.class, () -> {
-            ;});
+            cut.initialiseAOCDetails(mockAstroService.getStatusInfo(inputAOC));});
     }
 
     @Test
@@ -266,57 +266,7 @@ public class SolarSystemInformationTest {
 
     }
 
-    /*@Test
-    public void AOC_initialiser_throws_acception_if_not_correct_format() throws InvalidFormatException
-    {
-        //arrange
-        String inputID = "AB1234";
-        String inputPassword = "abcD1234!@";
-        String inputAOC = "SSun00TL";
-        String expectedOut = "No such classification or SMA code";
-        SolarSystemInformation cut = new SolarSystemInformation(inputID, inputPassword,mockAstroService);
-        //act
-        Exception exception = assertThrows(InvalidFormatException.class, () -> {
-            cut.initialiseAOCDetails(inputAOC);
-        });
-        String actualOut = exception.getMessage();
-        //assert
-        assertEquals(expectedOut, actualOut);
-
-    }
-
-
-
-
-    @Test
-    public void string_returned_separated_into_six_parts() throws InvalidFormatException {
-        //arrange
-        String inputID = "AB1234";
-        String inputPassword = "abcD1234!@";
-        String inputAOC = "SSun27TL";
-        String expectedp1 = "This";
-        String expectedp2 = "is";
-        String expectedp3 = "a";
-        String expectedp4 = "test";
-        String expectedp5 = "string";
-        String expectedp6 = "thanks";
-
-        SolarSystemInformation cut = new SolarSystemInformation(inputID, inputPassword);
-        //act
-        String actual1 = cut.initialiseAOCDetails(inputAOC).listOfValues[0];
-        String actual2 = cut.initialiseAOCDetails(inputAOC).listOfValues[1];
-        String actual3 = cut.initialiseAOCDetails(inputAOC).listOfValues[2];
-        String actual4 = cut.initialiseAOCDetails(inputAOC).listOfValues[3];
-        String actual5 = cut.initialiseAOCDetails(inputAOC).listOfValues[4];
-        String actual6 = cut.initialiseAOCDetails(inputAOC).listOfValues[5];
-        //assert
-        assertEquals(expectedp1, actual1);
-        assertEquals(expectedp2, actual2);
-        assertEquals(expectedp3, actual3);
-        assertEquals(expectedp4, actual4);
-        assertEquals(expectedp5, actual5);
-        assertEquals(expectedp6, actual6);
-    }*/
+    
 
 
 
