@@ -212,11 +212,14 @@ public class SolarSystemInformationTest {
     public void string_returned_from_WS_when_auth_is_true() {
         //arrange
         String inputAOC = "SSun27TL";
-        String expectedOut = "SSun27TL,Earth,23,23,23,23";
-
+        String expected = "SSun27TL,Earth,23,23,23,23";
+        expect(mockAstroService.getStatusInfo(inputAOC)).andReturn("SSun27TL,Earth,23,23,23,23");
+        replay(mockAstroService);
         //act
-
+        String actual = mockAstroService.getStatusInfo(inputAOC);
         //assert
+        assertTrue(expected.equals(actual));
+        verify(mockAstroService);
 
     }
 
