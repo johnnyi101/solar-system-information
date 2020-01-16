@@ -146,19 +146,59 @@ public class SolarSystemInformationTest {
 
     ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     @Test
-    public void AOC_getter_validation() throws InvalidFormatException {
+    public void AOC_getter_validation_returns_info_when_code_format_good() throws InvalidFormatException {
         //arrange
         String inputID = "AB1234";
         String inputPassword = "abcD1234!@";
         String inputAOC = "SSun27TL";
-        String expectedOut = "SSun27TL";
+        String expectedOutAOC = "SSun27TL";
+        String expectedOutInfo = "SSun27TL,Earth,23,23,23,23";
+        expect(mockAstroService.getStatusInfo(inputAOC)).andReturn("SSun27TL,Earth,23,23,23,23").times(2);
+        replay(mockAstroService);
         SolarSystemInformation cut = new SolarSystemInformation(inputID, inputPassword,mockAstroService);
         cut.initialiseAOCDetails(inputAOC);
         //act
-        String result = cut.getAstronomicalObjectClassificationCode();
+        String resultAOC = cut.getAstronomicalObjectClassificationCode();
+        String resultInfo = mockAstroService.getStatusInfo(inputAOC);
         //assert
-        assertEquals(expectedOut, result);
+        assertEquals(expectedOutAOC, resultAOC);
+        assertEquals(expectedOutInfo, resultInfo);
 
+
+    }
+    @Test
+    public void AOC_getter_validation_doesnt_return_info_when_code_format_bad() throws InvalidFormatException {
+        //arrange
+        String inputID = "AB1234";
+        String inputPassword = "abcD1234!@";
+        String inputAOC = "Ssun27TL";
+        SolarSystemInformation cut = new SolarSystemInformation(inputID, inputPassword,mockAstroService);
+        //act
+        //assert
+        assertThrows(InvalidFormatException.class, () -> {
+            cut.initialiseAOCDetails(inputAOC);});
+
+
+
+    }
+    @Test
+    public void error_thrown_when_info_returned_in_wrong_format() throws InvalidFormatException {
+        //arrange
+        String inputID = "AB1234";
+        String inputPassword = "abcD1234!@";
+        String inputAOC = "SSun27TL";
+        String expectedOutAOC = "SSun27TL";
+        String expectedOutInfo = "SSun27TL,earth,23,23,23,23";
+        expect(mockAstroService.getStatusInfo(inputAOC)).andReturn("SSun27TL,Earth,23,23,23,23").times(2);
+        replay(mockAstroService);
+        SolarSystemInformation cut = new SolarSystemInformation(inputID, inputPassword,mockAstroService);
+        cut.initialiseAOCDetails(inputAOC);
+        //act
+        String resultAOC = cut.getAstronomicalObjectClassificationCode();
+        //assert
+        assertEquals(expectedOutAOC, resultAOC);
+        assertThrows(InvalidFormatException.class, () -> {
+            ;});
     }
 
     @Test
@@ -168,6 +208,7 @@ public class SolarSystemInformationTest {
         String inputPassword = "abcD1234!@";
         String inputAOC = "s244gfdgf";
         String expectedOut = "Invalid Format";
+
         SolarSystemInformation cut = new SolarSystemInformation(inputID, inputPassword,mockAstroService);
         //act
         Exception exception = assertThrows(InvalidFormatException.class, () -> {
@@ -180,18 +221,18 @@ public class SolarSystemInformationTest {
 
     }
 
-    //////////////////////////////////////////////////Fake Tests/////////////////////////////////////////////////////////
     @Test
     public void boolean_true_returned_if_credentials_are_correct() {
         //arrange
         String inputID = "AB1234";
         String inputPassword = "abcD1234!@";
-        boolean expectedOut = true;
-
-
+        expect(mockAstroService.authenticate(inputID, inputPassword)).andReturn(true);
+        replay(mockAstroService);
         //act
-
+        boolean actual = mockAstroService.authenticate(inputID, inputPassword);
         //assert
+        assertTrue(actual);
+        verify(mockAstroService);
 
     }
 
@@ -200,11 +241,13 @@ public class SolarSystemInformationTest {
         //arrange
         String inputID = "AB1234";
         String inputPassword = "abcD1234!@";
-        boolean expectedOut = false;
-
+        expect(mockAstroService.authenticate(inputID, inputPassword)).andReturn(false);
+        replay(mockAstroService);
         //act
-
+        boolean actual = mockAstroService.authenticate(inputID, inputPassword);
         //assert
+        assertFalse(actual);
+        verify(mockAstroService);
 
     }
 
@@ -218,12 +261,12 @@ public class SolarSystemInformationTest {
         //act
         String actual = mockAstroService.getStatusInfo(inputAOC);
         //assert
-        assertTrue(expected.equals(actual));
+        assertEquals(expected, actual);
         verify(mockAstroService);
 
     }
 
-    @Test
+    /*@Test
     public void AOC_initialiser_throws_acception_if_not_correct_format() throws InvalidFormatException
     {
         //arrange
@@ -245,7 +288,7 @@ public class SolarSystemInformationTest {
 
 
 
-    /*@Test
+    @Test
     public void string_returned_separated_into_six_parts() throws InvalidFormatException {
         //arrange
         String inputID = "AB1234";

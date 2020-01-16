@@ -14,6 +14,8 @@ public class SolarSystemInformation {
     private BigDecimal semiMajorAxis;
     private BigDecimal mass;
     private IAstroService mockAstroService;
+
+
     public SolarSystemInformation(String userID, String password, IAstroService mockAstroService) {
         this.mockAstroService = mockAstroService;
         this.userID = userID;
@@ -32,18 +34,17 @@ public class SolarSystemInformation {
     public void initialiseAOCDetails(String astronomicalObjectClassificationCode) throws InvalidFormatException {
         if (!astronomicalObjectClassificationCode.matches("[S,P,M,D,A,C][0-9]{0,8}[A-Z][a-z]{2}[0-9]{1,3}[T,M,B,L]{1,2}")) {
             throw new InvalidFormatException("Invalid Format");
+        } else {
+            setAstronomicalObjectClassificationCode(astronomicalObjectClassificationCode);
+            String returned = mockAstroService.getStatusInfo(astronomicalObjectClassificationCode);
+            if (!returned.matches("^[S,P,M,D,A,C][0-9]{0,8}[A-Z][a-z]{2}[0-9]{1,3}[T,M,B,L]{1,2}[,][0-9]*[A-Z][a-z]{1,9}[,][0-9]*[,][0-9]*[,][0-9]*[,][0-9]*$")) {
+                throw new InvalidFormatException("No such classification or SMA code");
+            }
         }
-
-        setAstronomicalObjectClassificationCode(astronomicalObjectClassificationCode);
-
-        String returned = mockAstroService.getStatusInfo(astronomicalObjectClassificationCode);
-
-        if (!returned.matches("[S,P,M,D,A,C][0-9]{0,8}[A-Z][a-z]{2}[0-9]{1,3}[T,M,B,L]{1,2}[,][A-Z][a-z]*[,][0-9]{0,8}[A-Z][a-z]*[,][0-9]*[,][0-9]*[,][0-9]*[,][0-9]*")) {
-            throw new InvalidFormatException("No such classification or SMA code");
-        }
-
-
     }
+
+
+
 
 
 

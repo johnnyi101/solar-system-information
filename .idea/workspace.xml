@@ -2,7 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="b3495607-c0e1-44f7-bf5e-2e7fd35e3c69" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/solar/SolarSystemInformation.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/solar/SolarSystemInformation.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/solar/SolarSystemInformationTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/solar/SolarSystemInformationTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/solar/SolarSystemInformationTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/solar/SolarSystemInformationTest.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -43,7 +46,7 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
   </component>
-  <component name="RunManager" selected="JUnit.SolarSystemInformationTest.string_returned_from_WS_when_auth_is_true">
+  <component name="RunManager" selected="JUnit.SolarSystemInformationTest">
     <configuration name="SolarSystemInformationTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="solar-system-information" />
       <extension name="coverage">
@@ -75,7 +78,7 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="SolarSystemInformationTest.string_returned_from_WS_when_auth_is_true" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="SolarSystemInformationTest.AOC_getter_validation_returns_info" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="solar-system-information" />
       <extension name="coverage">
         <pattern>
@@ -85,7 +88,39 @@
       </extension>
       <option name="PACKAGE_NAME" value="solar" />
       <option name="MAIN_CLASS_NAME" value="solar.SolarSystemInformationTest" />
-      <option name="METHOD_NAME" value="string_returned_from_WS_when_auth_is_true" />
+      <option name="METHOD_NAME" value="AOC_getter_validation_returns_info" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="SolarSystemInformationTest.boolean_false_returned_if_credentials_are_wrong" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="solar-system-information" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="solar.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="solar" />
+      <option name="MAIN_CLASS_NAME" value="solar.SolarSystemInformationTest" />
+      <option name="METHOD_NAME" value="boolean_false_returned_if_credentials_are_wrong" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="SolarSystemInformationTest.boolean_true_returned_if_credentials_are_correct" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="solar-system-information" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="solar.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="solar" />
+      <option name="MAIN_CLASS_NAME" value="solar.SolarSystemInformationTest" />
+      <option name="METHOD_NAME" value="boolean_true_returned_if_credentials_are_correct" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -93,9 +128,11 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.SolarSystemInformationTest.string_returned_from_WS_when_auth_is_true" />
         <item itemvalue="JUnit.SolarSystemInformationTest" />
+        <item itemvalue="JUnit.SolarSystemInformationTest.AOC_getter_validation_returns_info" />
         <item itemvalue="JUnit.SolarSystemInformationTest.AOC_getter_validation" />
+        <item itemvalue="JUnit.SolarSystemInformationTest.boolean_true_returned_if_credentials_are_correct" />
+        <item itemvalue="JUnit.SolarSystemInformationTest.boolean_false_returned_if_credentials_are_wrong" />
       </list>
     </recent_temporary>
   </component>
@@ -133,22 +170,22 @@
       <screen x="0" y="0" width="1280" height="984" />
     </state>
     <state x="370" y="240" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1280.984/1280.0.1280.984@0.0.1280.984" timestamp="1579167047592" />
-    <state width="1237" height="263" key="GridCell.Tab.0.bottom" timestamp="1579174885229">
+    <state width="1237" height="263" key="GridCell.Tab.0.bottom" timestamp="1579185376932">
       <screen x="0" y="0" width="1280" height="984" />
     </state>
-    <state width="1237" height="263" key="GridCell.Tab.0.bottom/0.0.1280.984/1280.0.1280.984@0.0.1280.984" timestamp="1579174885229" />
-    <state width="1237" height="263" key="GridCell.Tab.0.center" timestamp="1579174885229">
+    <state width="1237" height="263" key="GridCell.Tab.0.bottom/0.0.1280.984/1280.0.1280.984@0.0.1280.984" timestamp="1579185376932" />
+    <state width="1237" height="263" key="GridCell.Tab.0.center" timestamp="1579185376932">
       <screen x="0" y="0" width="1280" height="984" />
     </state>
-    <state width="1237" height="263" key="GridCell.Tab.0.center/0.0.1280.984/1280.0.1280.984@0.0.1280.984" timestamp="1579174885229" />
-    <state width="1237" height="263" key="GridCell.Tab.0.left" timestamp="1579174885229">
+    <state width="1237" height="263" key="GridCell.Tab.0.center/0.0.1280.984/1280.0.1280.984@0.0.1280.984" timestamp="1579185376932" />
+    <state width="1237" height="263" key="GridCell.Tab.0.left" timestamp="1579185376932">
       <screen x="0" y="0" width="1280" height="984" />
     </state>
-    <state width="1237" height="263" key="GridCell.Tab.0.left/0.0.1280.984/1280.0.1280.984@0.0.1280.984" timestamp="1579174885229" />
-    <state width="1237" height="263" key="GridCell.Tab.0.right" timestamp="1579174885229">
+    <state width="1237" height="263" key="GridCell.Tab.0.left/0.0.1280.984/1280.0.1280.984@0.0.1280.984" timestamp="1579185376932" />
+    <state width="1237" height="263" key="GridCell.Tab.0.right" timestamp="1579185376932">
       <screen x="0" y="0" width="1280" height="984" />
     </state>
-    <state width="1237" height="263" key="GridCell.Tab.0.right/0.0.1280.984/1280.0.1280.984@0.0.1280.984" timestamp="1579174885229" />
+    <state width="1237" height="263" key="GridCell.Tab.0.right/0.0.1280.984/1280.0.1280.984@0.0.1280.984" timestamp="1579185376932" />
     <state width="1237" height="325" key="GridCell.Tab.1.bottom" timestamp="1579106366253">
       <screen x="0" y="0" width="1280" height="984" />
     </state>
@@ -173,5 +210,23 @@
       <screen x="0" y="0" width="1280" height="984" />
     </state>
     <state x="382" y="112" key="refactoring.ChangeSignatureDialog/0.0.1280.984/1280.0.1280.984@0.0.1280.984" timestamp="1579012248729" />
+    <state x="296" y="145" width="670" height="676" key="search.everywhere.popup" timestamp="1579180141841">
+      <screen x="0" y="0" width="1280" height="984" />
+    </state>
+    <state x="296" y="145" width="670" height="676" key="search.everywhere.popup/0.0.1280.984/1280.0.1280.984@0.0.1280.984" timestamp="1579180141841" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-method">
+          <url>file://$PROJECT_DIR$/src/test/java/solar/SolarSystemInformationTest.java</url>
+          <line>148</line>
+          <properties class="solar.SolarSystemInformationTest" method="AOC_getter_validation_returns_info">
+            <option name="EMULATED" value="true" />
+          </properties>
+          <option name="timeStamp" value="3" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>
