@@ -2,8 +2,16 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="b3495607-c0e1-44f7-bf5e-2e7fd35e3c69" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/.~lock.202001-AC0-TDDassessment-updated.docx#" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/solar/SolarSystemInformation.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/solar/SolarSystemInformation.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/solar/SolarSystemInformationTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/solar/SolarSystemInformationTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/META-INF/solar-system-information.kotlin_module" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/solar/SolarSystemInformation.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/solar/SolarSystemInformation.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/solar/SolarSystemInformationTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/solar/SolarSystemInformationTest.class" afterDir="false" />
     </list>
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -33,19 +41,35 @@
     </option>
   </component>
   <component name="ProjectId" id="1WNf7EkPsFHikHtT1gDeELjI810" />
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showExcludedFiles" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
+    <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
   </component>
-  <component name="RunManager" selected="JUnit.SolarSystemInformationTest">
-    <configuration name="SolarSystemInformationTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="solar-system-information" />
+  <component name="RunDashboard">
+    <option name="ruleStates">
+      <list>
+        <RuleState>
+          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
+        </RuleState>
+        <RuleState>
+          <option name="name" value="StatusDashboardGroupingRule" />
+        </RuleState>
+      </list>
+    </option>
+  </component>
+  <component name="RunManager" selected="JUnit.SolarSystemInformationTest (1)">
+    <configuration name="SolarSystemInformationTest (1)" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="banking-system" />
       <extension name="coverage">
         <pattern>
           <option name="PATTERN" value="solar.*" />
@@ -55,6 +79,22 @@
       <option name="PACKAGE_NAME" value="solar" />
       <option name="MAIN_CLASS_NAME" value="solar.SolarSystemInformationTest" />
       <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="SolarSystemInformationTest" type="JUnit" factoryName="JUnit" activateToolWindowBeforeRun="false" temporary="true" nameIsGenerated="true">
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="solar.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="solar" />
+      <option name="MAIN_CLASS_NAME" value="solar.SolarSystemInformationTest" />
+      <option name="METHOD_NAME" value="" />
+      <option name="TEST_OBJECT" value="class" />
+      <option name="PARAMETERS" value="" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -91,22 +131,6 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="SolarSystemInformationTest.boolean_false_returned_if_credentials_are_wrong" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="solar-system-information" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="solar.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="solar" />
-      <option name="MAIN_CLASS_NAME" value="solar.SolarSystemInformationTest" />
-      <option name="METHOD_NAME" value="boolean_false_returned_if_credentials_are_wrong" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <configuration name="SolarSystemInformationTest.boolean_true_returned_if_credentials_are_correct" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="solar-system-information" />
       <extension name="coverage">
@@ -125,25 +149,13 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.SolarSystemInformationTest (1)" />
         <item itemvalue="JUnit.SolarSystemInformationTest" />
         <item itemvalue="JUnit.SolarSystemInformationTest.AOC_getter_validation_returns_info" />
         <item itemvalue="JUnit.SolarSystemInformationTest.AOC_getter_validation" />
         <item itemvalue="JUnit.SolarSystemInformationTest.boolean_true_returned_if_credentials_are_correct" />
-        <item itemvalue="JUnit.SolarSystemInformationTest.boolean_false_returned_if_credentials_are_wrong" />
       </list>
     </recent_temporary>
-  </component>
-  <component name="ServiceViewManager">
-    <option name="viewStates">
-      <list>
-        <serviceView>
-          <treeState>
-            <expand />
-            <select />
-          </treeState>
-        </serviceView>
-      </list>
-    </option>
   </component>
   <component name="SvnConfiguration">
     <configuration />
@@ -157,6 +169,22 @@
       <updated>1578994803862</updated>
     </task>
     <servers />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State>
+              <option name="COLUMN_ORDER" />
+            </State>
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
   </component>
   <component name="WindowStateProjectService">
     <state x="445" y="209" key="#com.intellij.ide.util.MemberChooser" timestamp="1579087598119">

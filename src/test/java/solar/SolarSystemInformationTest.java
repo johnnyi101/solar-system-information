@@ -2,6 +2,9 @@ package solar;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+
+import java.math.BigDecimal;
+
 import static org.junit.jupiter.api.Assertions.*;
 import static org.easymock.EasyMock.createMock;
 import static org.easymock.EasyMock.expect;
@@ -146,8 +149,8 @@ public class SolarSystemInformationTest
         String inputPassword = "abcD1234!@";
         String inputAOC = "SSun27TL";
         String expectedOutAOC = "SSun27TL";
-        String expectedOutInfo = "SSun27TL,Earth,23,23,23,23";
-        expect(mockAstroService.getStatusInfo(inputAOC)).andReturn("SSun27TL,Earth,23,23,23,23").times(2);
+        String expectedOutInfo = "SSun27TL,Planet,Earth,23,23,23,23";
+        expect(mockAstroService.getStatusInfo(inputAOC)).andReturn("SSun27TL,Planet,Earth,23,23,23,23").times(2);
         replay(mockAstroService);
         SolarSystemInformation cut = new SolarSystemInformation(inputID, inputPassword,mockAstroService);
         cut.initialiseAOCDetails(inputAOC);
@@ -177,8 +180,7 @@ public class SolarSystemInformationTest
         String inputPassword = "abcD1234!@";
         String inputAOC = "SSun27TL";
         String expectedOutAOC = "SSun27TL";
-        String expectedOutInfo = "SSun27TL,earth,23,23,23,23";
-        expect(mockAstroService.getStatusInfo(inputAOC)).andReturn("SSun27TL,Earth,23,23,23,23").times(2);
+        expect(mockAstroService.getStatusInfo(inputAOC)).andReturn("SSun27TL,Planet,Earth,23,23,23,23").times(2);
         replay(mockAstroService);
         SolarSystemInformation cut = new SolarSystemInformation(inputID, inputPassword,mockAstroService);
         cut.initialiseAOCDetails(inputAOC);
@@ -235,8 +237,8 @@ public class SolarSystemInformationTest
     public void string_returned_from_WS_when_auth_is_true() {
         //arrange
         String inputAOC = "SSun27TL";
-        String expected = "SSun27TL,Earth,23,23,23,23";
-        expect(mockAstroService.getStatusInfo(inputAOC)).andReturn("SSun27TL,Earth,23,23,23,23");
+        String expected = "SSun27TL,Planet,Earth,23,23,23,23";
+        expect(mockAstroService.getStatusInfo(inputAOC)).andReturn("SSun27TL,Planet,Earth,23,23,23,23");
         replay(mockAstroService);
         //act
         String actual = mockAstroService.getStatusInfo(inputAOC);
@@ -244,6 +246,40 @@ public class SolarSystemInformationTest
         assertEquals(expected, actual);
         verify(mockAstroService);
     }
-    @Test
-    public void
+    /*@Test
+    public void does_the_returned_string_info_split_properly_and_variables_are_set() throws InvalidFormatException {
+        //arrange
+        String inputAOC = "SSun27TL";
+        String expected = "SSun27TL,Earth,23,23,23,23";
+        String inputID = "AB1234";
+        String inputPassword = "abcD1234!@";
+        String expectP1 = "SSun27TL";
+        String expectP2 = "Earth";
+        int expectP3 = 23;
+        String expectP4 = "23";
+        String expectP5 = "23";
+        BigDecimal expectP6 = "23";
+        BigDecimal expectP7 = "23";
+        SolarSystemInformation cut = new SolarSystemInformation(inputID, inputPassword,mockAstroService);
+        expect(mockAstroService.getStatusInfo(inputAOC)).andReturn("SSun27TL,Earth,23,23,23,23");
+        replay(mockAstroService);
+        //act
+        String returnedp1 = cut.getAstronomicalObjectClassificationCode();
+        String returnedp2 = cut.getObjectName();
+        String returnedp3 = cut.getObjectType();
+        int returnedp4 = cut.getOrbitalPeriod();
+        BigDecimal returnedp5 = cut.getRadius();
+        BigDecimal returnedp6 = cut.getSemiMajorAxis();
+        BigDecimal returnedp7 = cut.getMass();
+        //assert
+        assertEquals(expectP1,returnedp1);
+        assertEquals(expectP2,returnedp2);
+        assertEquals(expectP3,returnedp3);
+        assertEquals(expectP4,returnedp4);
+        assertEquals(expectP5,returnedp5);
+        assertEquals(expectP6,returnedp6);
+        assertEquals(expectP7,returnedp7);
+        verify(mockAstroService);
+    }*/
+
 }

@@ -41,10 +41,11 @@ public class SolarSystemInformation {
             {
             setAstronomicalObjectClassificationCode(astronomicalObjectClassificationCode);
             String returned = mockAstroService.getStatusInfo(astronomicalObjectClassificationCode);
-            if (!returned.matches("^[S,P,M,D,A,C][0-9]{0,8}[A-Z][a-z]{2}[0-9]{1,3}[T,M,B,L]{1,2}[,][0-9]*[A-Z][a-z]{1,9}[,][0-9]*[,][0-9]*[,][0-9]*[,][0-9]*$"))
+            if (!returned.matches("^[S,P,M,D,A,C][0-9]{0,8}[A-Z][a-z]{2}[0-9]{1,3}[T,M,B,L]{1,2}[,][A-Z][a-z]{1,8}[,][0-9]*[A-Z][a-z]{1,9}[,][0-9]*[,][0-9]*[,][0-9]*[,][0-9]*$"))
             {
                 throw new InvalidFormatException("No such classification or SMA code");
             }
+
         }
     }
 //////////////////////////////////////////////////////////Getters and Setters///////////////////////////////////////////
