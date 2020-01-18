@@ -12,77 +12,25 @@ import static org.easymock.EasyMock.expectLastCall;
 import static org.easymock.EasyMock.replay;
 import static org.easymock.EasyMock.verify;
 
-public class SolarSystemInformationTest
-{
+public class SolarSystemInformationTest {
     IAstroService mockAstroService;
+
     ///////////////////////////////////Set-Up////////////////////////////////////////////////////////////////////////////
     @BeforeEach
-    void setUp()
-    {
+    void setUp() {
         mockAstroService = createMock(IAstroService.class);
     }
+
     ///////////////////////////////////User ID and password validation tests///////////////////////////////////////////////
     @Test
-    public void a_valid_user_idlength_is_accepted()
-    {
+    public void a_valid_user_idlength_is_accepted() {
         //arrange
         String inputID = "AB1234";
         String inputPassword = "abcD1234!@";
         String inputAOC = "SSun27TL";
         String expectedObjectType = "Valid";
         String expectedObjectName = "Valid";
-        SolarSystemInformation cut = new SolarSystemInformation(inputID, inputPassword,mockAstroService);
-        //act
-        String resultOT = cut.getObjectType();
-        String resultON = cut.getObjectName();
-        //assert
-        assertEquals(expectedObjectName, resultON);
-        assertEquals(expectedObjectType, resultOT);
-    }
-    @Test
-    public void id_with_two_capital_letters_at_start_is_accepted()
-    {
-        //arrange
-        String inputID = "AB1234";
-        String inputPassword = "abcD1234!@";
-        String inputAOC = "SSun27TL";
-        String expectedObjectType = "Valid";
-        String expectedObjectName = "Valid";
-        SolarSystemInformation cut = new SolarSystemInformation(inputID, inputPassword,mockAstroService);
-        //act
-        String resultOT = cut.getObjectType();
-        String resultON = cut.getObjectName();
-        //assert
-        assertEquals(expectedObjectName, resultON);
-        assertEquals(expectedObjectType, resultOT);
-    }
-    @Test
-    public void id_with_four_numbers_at_end_is_accepted()
-    {
-        //arrange
-        String inputID = "AB1234";
-        String inputPassword = "abcD1234!@";
-        String inputAOC = "SSun27TL";
-        String expectedObjectType = "Valid";
-        String expectedObjectName = "Valid";
-        SolarSystemInformation cut = new SolarSystemInformation(inputID, inputPassword,mockAstroService);
-        //act
-        String resultOT = cut.getObjectType();
-        String resultON = cut.getObjectName();
-        //assert
-        assertEquals(expectedObjectName, resultON);
-        assertEquals(expectedObjectType, resultOT);
-    }
-    @Test
-    public void erroneous_entries_are_not_allowed()
-    {
-        //arrange
-        String inputID = "1B12/4";
-        String inputPassword = "abcD1234!@";
-        String inputAOC = "SSun27TL";
-        String expectedObjectType = "Not Allowed";
-        String expectedObjectName = "Not Allowed";
-        SolarSystemInformation cut = new SolarSystemInformation(inputID, inputPassword,mockAstroService);
+        SolarSystemInformation cut = new SolarSystemInformation(inputID, inputPassword, mockAstroService);
         //act
         String resultOT = cut.getObjectType();
         String resultON = cut.getObjectName();
@@ -92,15 +40,65 @@ public class SolarSystemInformationTest
     }
 
     @Test
-    public void user_ID_cannot_end_in_four_zeros()
-    {
+    public void id_with_two_capital_letters_at_start_is_accepted() {
+        //arrange
+        String inputID = "AB1234";
+        String inputPassword = "abcD1234!@";
+        String inputAOC = "SSun27TL";
+        String expectedObjectType = "Valid";
+        String expectedObjectName = "Valid";
+        SolarSystemInformation cut = new SolarSystemInformation(inputID, inputPassword, mockAstroService);
+        //act
+        String resultOT = cut.getObjectType();
+        String resultON = cut.getObjectName();
+        //assert
+        assertEquals(expectedObjectName, resultON);
+        assertEquals(expectedObjectType, resultOT);
+    }
+
+    @Test
+    public void id_with_four_numbers_at_end_is_accepted() {
+        //arrange
+        String inputID = "AB1234";
+        String inputPassword = "abcD1234!@";
+        String inputAOC = "SSun27TL";
+        String expectedObjectType = "Valid";
+        String expectedObjectName = "Valid";
+        SolarSystemInformation cut = new SolarSystemInformation(inputID, inputPassword, mockAstroService);
+        //act
+        String resultOT = cut.getObjectType();
+        String resultON = cut.getObjectName();
+        //assert
+        assertEquals(expectedObjectName, resultON);
+        assertEquals(expectedObjectType, resultOT);
+    }
+
+    @Test
+    public void erroneous_entries_are_not_allowed() {
+        //arrange
+        String inputID = "1B12/4";
+        String inputPassword = "abcD1234!@";
+        String inputAOC = "SSun27TL";
+        String expectedObjectType = "Not Allowed";
+        String expectedObjectName = "Not Allowed";
+        SolarSystemInformation cut = new SolarSystemInformation(inputID, inputPassword, mockAstroService);
+        //act
+        String resultOT = cut.getObjectType();
+        String resultON = cut.getObjectName();
+        //assert
+        assertEquals(expectedObjectName, resultON);
+        assertEquals(expectedObjectType, resultOT);
+    }
+
+    @Test
+    public void user_ID_cannot_end_in_four_zeros() {
         //arrange
         String inputID = "AB0000";
         String inputPassword = "abcD1234!@";
         String inputAOC = "SSun27TL";
         String expectedObjectType = "Not Allowed";
         String expectedObjectName = "Not Allowed";
-        SolarSystemInformation cut = new SolarSystemInformation(inputID, inputPassword,mockAstroService);
+        SolarSystemInformation cut = new SolarSystemInformation(inputID, inputPassword, mockAstroService);
         //act
         String resultOT = cut.getObjectType();
         String resultON = cut.getObjectName();
@@ -108,16 +106,16 @@ public class SolarSystemInformationTest
         assertEquals(expectedObjectName, resultON);
         assertEquals(expectedObjectType, resultOT);
     }
+
     @Test
-    public void password_must_be_at_least_ten_characters_in_length()
-    {
+    public void password_must_be_at_least_ten_characters_in_length() {
         //arrange
         String inputID = "ABCD1234!";
         String inputPassword = "abcD1234!@";
         String inputAOC = "SSun27TL";
         String expectedObjectType = "Not Allowed";
         String expectedObjectName = "Not Allowed";
-        SolarSystemInformation cut = new SolarSystemInformation(inputID, inputPassword,mockAstroService);
+        SolarSystemInformation cut = new SolarSystemInformation(inputID, inputPassword, mockAstroService);
         //act
         String resultOT = cut.getObjectType();
         String resultON = cut.getObjectName();
@@ -125,6 +123,7 @@ public class SolarSystemInformationTest
         assertEquals(expectedObjectName, resultON);
         assertEquals(expectedObjectType, resultOT);
     }
+
     @Test
     public void password_must_have_one_upper_lower_special() {
         //arrange
@@ -133,7 +132,7 @@ public class SolarSystemInformationTest
         String inputAOC = "SSun27TL";
         String expectedObjectType = "Valid";
         String expectedObjectName = "Valid";
-        SolarSystemInformation cut = new SolarSystemInformation(inputID, inputPassword,mockAstroService);
+        SolarSystemInformation cut = new SolarSystemInformation(inputID, inputPassword, mockAstroService);
         //act
         String resultOT = cut.getObjectType();
         String resultON = cut.getObjectName();
@@ -141,6 +140,7 @@ public class SolarSystemInformationTest
         assertEquals(expectedObjectName, resultON);
         assertEquals(expectedObjectType, resultOT);
     }
+
     ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     @Test
     public void AOC_getter_validation_returns_info_when_code_format_good() throws InvalidFormatException {
@@ -152,7 +152,7 @@ public class SolarSystemInformationTest
         String expectedOutInfo = "SSun27TL,Planet,Earth,23,23,23,23";
         expect(mockAstroService.getStatusInfo(inputAOC)).andReturn("SSun27TL,Planet,Earth,23,23,23,23").times(2);
         replay(mockAstroService);
-        SolarSystemInformation cut = new SolarSystemInformation(inputID, inputPassword,mockAstroService);
+        SolarSystemInformation cut = new SolarSystemInformation(inputID, inputPassword, mockAstroService);
         cut.initialiseAOCDetails(inputAOC);
         //act
         String resultAOC = cut.getAstronomicalObjectClassificationCode();
@@ -161,18 +161,21 @@ public class SolarSystemInformationTest
         assertEquals(expectedOutAOC, resultAOC);
         assertEquals(expectedOutInfo, resultInfo);
     }
+
     @Test
     public void AOC_getter_validation_doesnt_return_info_when_code_format_bad() throws InvalidFormatException {
         //arrange
         String inputID = "AB1234";
         String inputPassword = "abcD1234!@";
         String inputAOC = "Ssun27TL";
-        SolarSystemInformation cut = new SolarSystemInformation(inputID, inputPassword,mockAstroService);
+        SolarSystemInformation cut = new SolarSystemInformation(inputID, inputPassword, mockAstroService);
         //act
         //assert
         assertThrows(InvalidFormatException.class, () -> {
-            cut.initialiseAOCDetails(inputAOC);});
+            cut.initialiseAOCDetails(inputAOC);
+        });
     }
+
     @Test
     public void error_thrown_when_info_returned_in_wrong_format() throws InvalidFormatException {
         //arrange
@@ -182,15 +185,17 @@ public class SolarSystemInformationTest
         String expectedOutAOC = "SSun27TL";
         expect(mockAstroService.getStatusInfo(inputAOC)).andReturn("SSun27TL,Planet,Earth,23,23,23,23").times(2);
         replay(mockAstroService);
-        SolarSystemInformation cut = new SolarSystemInformation(inputID, inputPassword,mockAstroService);
+        SolarSystemInformation cut = new SolarSystemInformation(inputID, inputPassword, mockAstroService);
         cut.initialiseAOCDetails(inputAOC);
         //act
         String resultAOC = cut.getAstronomicalObjectClassificationCode();
         //assert
         assertEquals(expectedOutAOC, resultAOC);
         assertThrows(InvalidFormatException.class, () -> {
-            cut.initialiseAOCDetails(mockAstroService.getStatusInfo(inputAOC));});
+            cut.initialiseAOCDetails(mockAstroService.getStatusInfo(inputAOC));
+        });
     }
+
     @Test
     public void AOC_getter_validation_bad_format_gets_error() throws InvalidFormatException {
         //arrange
@@ -198,7 +203,7 @@ public class SolarSystemInformationTest
         String inputPassword = "abcD1234!@";
         String inputAOC = "s244gfdgf";
         String expectedOut = "Invalid Format";
-        SolarSystemInformation cut = new SolarSystemInformation(inputID, inputPassword,mockAstroService);
+        SolarSystemInformation cut = new SolarSystemInformation(inputID, inputPassword, mockAstroService);
         //act
         Exception exception = assertThrows(InvalidFormatException.class, () -> {
             cut.initialiseAOCDetails(inputAOC);
@@ -207,6 +212,7 @@ public class SolarSystemInformationTest
         //assert
         assertEquals(expectedOut, actualOut);
     }
+
     @Test
     public void boolean_true_returned_if_credentials_are_correct() {
         //arrange
@@ -220,6 +226,7 @@ public class SolarSystemInformationTest
         assertTrue(actual);
         verify(mockAstroService);
     }
+
     @Test
     public void boolean_false_returned_if_credentials_are_wrong() {
         //arrange
@@ -233,6 +240,7 @@ public class SolarSystemInformationTest
         assertFalse(actual);
         verify(mockAstroService);
     }
+
     @Test
     public void string_returned_from_WS_when_auth_is_true() {
         //arrange
@@ -246,6 +254,7 @@ public class SolarSystemInformationTest
         assertEquals(expected, actual);
         verify(mockAstroService);
     }
+
     @Test
     public void does_the_returned_string_info_split_properly_and_variables_are_set() throws InvalidFormatException {
         //arrange
@@ -259,7 +268,7 @@ public class SolarSystemInformationTest
         String expectP5 = "23";
         String expectP6 = "23";
         String expectP7 = "23";
-        SolarSystemInformation cut = new SolarSystemInformation(inputID, inputPassword,mockAstroService);
+        SolarSystemInformation cut = new SolarSystemInformation(inputID, inputPassword, mockAstroService);
         expect(mockAstroService.getStatusInfo(inputAOC)).andReturn("SSun27TL,Earth,Planet,23,23,23,23");
         replay(mockAstroService);
         //act
@@ -272,29 +281,65 @@ public class SolarSystemInformationTest
         String returnedp6 = cut.getSma();
         String returnedp7 = cut.getMassS();
         //assert
-        assertEquals(expectP1,returnedp1);
-        assertEquals(expectP2,returnedp2);
-        assertEquals(expectP3,returnedp3);
-        assertEquals(expectP4,returnedp4);
-        assertEquals(expectP5,returnedp5);
-        assertEquals(expectP6,returnedp6);
-        assertEquals(expectP7,returnedp7);
+        assertEquals(expectP1, returnedp1);
+        assertEquals(expectP2, returnedp2);
+        assertEquals(expectP3, returnedp3);
+        assertEquals(expectP4, returnedp4);
+        assertEquals(expectP5, returnedp5);
+        assertEquals(expectP6, returnedp6);
+        assertEquals(expectP7, returnedp7);
         verify(mockAstroService);
     }
+
     @Test
     public void object_type_set_correct() throws InvalidFormatException {
-      //arrange
+        //arrange
         String inputAOC = "SSun27TL";
         String inputID = "AB1234";
         String inputPassword = "abcD1234!@";
         String expected = "Planet";
-        SolarSystemInformation cut = new SolarSystemInformation(inputID, inputPassword,mockAstroService);
+        SolarSystemInformation cut = new SolarSystemInformation(inputID, inputPassword, mockAstroService);
         expect(mockAstroService.getStatusInfo(inputAOC)).andReturn("SSun27TL,Planet,Earth,23,23,23,23");
         replay(mockAstroService);
-      //act
+        //act
         cut.initialiseAOCDetails(inputAOC);
         String actual = cut.getObjectType();
-      //assert
+        //assert
+        assertEquals(expected, actual);
+        verify(mockAstroService);
+    }
+
+    @Test
+    public void object_name_set_correct() throws InvalidFormatException {
+        //arrange
+        String inputAOC = "SSun27TL";
+        String inputID = "AB1234";
+        String inputPassword = "abcD1234!@";
+        String expected = "Earth";
+        SolarSystemInformation cut = new SolarSystemInformation(inputID, inputPassword, mockAstroService);
+        expect(mockAstroService.getStatusInfo(inputAOC)).andReturn("SSun27TL,Planet,Earth,23,23,23,23");
+        replay(mockAstroService);
+        //act
+        cut.initialiseAOCDetails(inputAOC);
+        String actual = cut.getObjectName();
+        //assert
+        assertEquals(expected, actual);
+        verify(mockAstroService);
+    }
+    @Test
+    public void object_radius_set_correct() throws InvalidFormatException {
+        //arrange
+        String inputAOC = "SSun27TL";
+        String inputID = "AB1234";
+        String inputPassword = "abcD1234!@";
+        int expected = 23;
+        SolarSystemInformation cut = new SolarSystemInformation(inputID, inputPassword, mockAstroService);
+        expect(mockAstroService.getStatusInfo(inputAOC)).andReturn("SSun27TL,Planet,Earth,23,23,23,23");
+        replay(mockAstroService);
+        //act
+        cut.initialiseAOCDetails(inputAOC);
+        String actual = cut.getObjectName();
+        //assert
         assertEquals(expected, actual);
         verify(mockAstroService);
     }

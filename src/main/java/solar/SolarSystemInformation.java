@@ -71,6 +71,7 @@ public class SolarSystemInformation {
                 sma = returnedStringArray[5];
                 massS = returnedStringArray[6];
                 setObjectType(type);
+                setObjectName(name);
             }
         }
     }
