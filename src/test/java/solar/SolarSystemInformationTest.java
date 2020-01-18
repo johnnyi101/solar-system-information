@@ -264,13 +264,13 @@ public class SolarSystemInformationTest
         replay(mockAstroService);
         //act
         cut.initialiseAOCDetails(inputAOC);
-        String returnedp1 = cut.getP1();
-        String returnedp2 = cut.getP2();
-        String returnedp3 = cut.getP3();
-        String returnedp4 = cut.getP4();
-        String returnedp5 = cut.getP5();
-        String returnedp6 = cut.getP6();
-        String returnedp7 = cut.getP7();
+        String returnedp1 = cut.getAOC();
+        String returnedp2 = cut.getType();
+        String returnedp3 = cut.getName();
+        String returnedp4 = cut.getOrbital();
+        String returnedp5 = cut.getRad();
+        String returnedp6 = cut.getSma();
+        String returnedp7 = cut.getMassS();
         //assert
         assertEquals(expectP1,returnedp1);
         assertEquals(expectP2,returnedp2);
@@ -281,5 +281,21 @@ public class SolarSystemInformationTest
         assertEquals(expectP7,returnedp7);
         verify(mockAstroService);
     }
-    
+    @Test
+    public void object_type_set_correct() throws InvalidFormatException {
+      //arrange
+        String inputAOC = "SSun27TL";
+        String inputID = "AB1234";
+        String inputPassword = "abcD1234!@";
+        String expected = "Planet";
+        SolarSystemInformation cut = new SolarSystemInformation(inputID, inputPassword,mockAstroService);
+        expect(mockAstroService.getStatusInfo(inputAOC)).andReturn("SSun27TL,Planet,Earth,23,23,23,23");
+        replay(mockAstroService);
+      //act
+        cut.initialiseAOCDetails(inputAOC);
+        String actual = cut.getObjectType();
+      //assert
+        assertEquals(expected, actual);
+        verify(mockAstroService);
+    }
 }

@@ -14,20 +14,20 @@ public class SolarSystemInformation {
     private BigDecimal semiMajorAxis;
     private BigDecimal mass;
     private IAstroService mockAstroService;
-    private String p1;
-    private String p2;
-    private String p3;
-    private String p4;
-    private String p5;
-    private String p6;
-    private String p7;
-    String getP1() { return p1; }
-    String getP2() { return p2; }
-    String getP3() { return p3; }
-    String getP4() { return p4; }
-    String getP5() { return p5; }
-    String getP6() { return p6; }
-    String getP7() { return p7; }
+    private String AOC;
+    private String type;
+    private String name;
+    private String orbital;
+    private String rad;
+    private String sma;
+    private String massS;
+    public String getAOC() { return AOC; }
+    public String getType() { return type; }
+    public String getName() { return name; }
+    public String getOrbital() { return orbital; }
+    public String getRad() { return rad; }
+    public String getSma() { return sma; }
+    public String getMassS() { return massS; }
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////
     public SolarSystemInformation(String userID, String password, IAstroService mockAstroService)
     {
@@ -63,13 +63,14 @@ public class SolarSystemInformation {
             else
             {
                 String [] returnedStringArray = returned.split(",");
-                p1 = returnedStringArray[0];
-                p2 = returnedStringArray[1];
-                p3 = returnedStringArray[2];
-                p4 = returnedStringArray[3];
-                p5 = returnedStringArray[4];
-                p6 = returnedStringArray[5];
-                p7 = returnedStringArray[6];
+                AOC = returnedStringArray[0];
+                type = returnedStringArray[1];
+                name = returnedStringArray[2];
+                orbital = returnedStringArray[3];
+                rad = returnedStringArray[4];
+                sma = returnedStringArray[5];
+                massS = returnedStringArray[6];
+                setObjectType(type);
             }
         }
     }

@@ -5,7 +5,6 @@
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/solar/SolarSystemInformation.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/solar/SolarSystemInformation.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/solar/SolarSystemInformationTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/solar/SolarSystemInformationTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/solar/SolarSystemInformation.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/solar/SolarSystemInformation.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/test-classes/solar/SolarSystemInformationTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/solar/SolarSystemInformationTest.class" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -64,7 +63,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="JUnit.SolarSystemInformationTest.does_the_returned_string_info_split_properly_and_variables_are_set">
+  <component name="RunManager" selected="JUnit.SolarSystemInformationTest (1)">
     <configuration name="SolarSystemInformationTest (1)" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="banking-system" />
       <extension name="coverage">
@@ -146,8 +145,8 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.SolarSystemInformationTest.does_the_returned_string_info_split_properly_and_variables_are_set" />
         <item itemvalue="JUnit.SolarSystemInformationTest (1)" />
+        <item itemvalue="JUnit.SolarSystemInformationTest.does_the_returned_string_info_split_properly_and_variables_are_set" />
         <item itemvalue="JUnit.SolarSystemInformationTest" />
         <item itemvalue="JUnit.SolarSystemInformationTest.AOC_getter_validation_returns_info" />
         <item itemvalue="JUnit.SolarSystemInformationTest.AOC_getter_validation" />
