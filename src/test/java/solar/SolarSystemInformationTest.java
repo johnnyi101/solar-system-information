@@ -327,7 +327,7 @@ public class SolarSystemInformationTest {
         verify(mockAstroService);
     }
     @Test
-    public void object_radius_set_correct() throws InvalidFormatException {
+    public void object_orbital_period_set_correct() throws InvalidFormatException {
         //arrange
         String inputAOC = "SSun27TL";
         String inputID = "AB1234";
@@ -338,7 +338,7 @@ public class SolarSystemInformationTest {
         replay(mockAstroService);
         //act
         cut.initialiseAOCDetails(inputAOC);
-        String actual = cut.getObjectName();
+        int actual = cut.getOrbitalPeriod();
         //assert
         assertEquals(expected, actual);
         verify(mockAstroService);

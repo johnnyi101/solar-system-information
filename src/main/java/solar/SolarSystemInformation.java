@@ -72,6 +72,7 @@ public class SolarSystemInformation {
                 massS = returnedStringArray[6];
                 setObjectType(type);
                 setObjectName(name);
+                setOrbitalPeriod(Integer.parseInt(orbital));
             }
         }
     }
