@@ -421,7 +421,7 @@ public class SolarSystemInformationTest {
         String type = "Planet";
         String name = "Earth";
         int op = 23;
-        BigDecimal expectedRadius = new BigDecimal("24.0");
+        BigDecimal expectedRadius = new BigDecimal(24);
         BigDecimal expectedsma = new BigDecimal("25.0");
         BigDecimal expectedMass = new BigDecimal("26.0");
         boolean expectedExists = true;
@@ -464,6 +464,40 @@ public class SolarSystemInformationTest {
         //act
         cut.initialiseAOCDetails(inputAOC);
         BigDecimal actual = new BigDecimal(String.valueOf(cut.getSemiMajorAxis()));
+        //assert
+        assertEquals(expected, actual);
+        verify(mockAstroService);
+    }
+    @Test
+    public void mass_returned_with_correct_formatting() throws InvalidFormatException {
+        //arrange
+        String inputAOC = "SSun27TL";
+        String inputID = "AB1234";
+        String inputPassword = "abcD1234!@";
+        BigDecimal expected = new BigDecimal("3.45e12");
+        SolarSystemInformation cut = new SolarSystemInformation(inputID, inputPassword, mockAstroService);
+        expect(mockAstroService.getStatusInfo(inputAOC)).andReturn("SSun27TL,Planet,Earth,23,24,3450000000000,26");
+        replay(mockAstroService);
+        //act
+        cut.initialiseAOCDetails(inputAOC);
+        BigDecimal actual = new BigDecimal(String.valueOf(cut.getSemiMajorAxis()));
+        //assert
+        assertEquals(expected, actual);
+        verify(mockAstroService);
+    }
+    @Test
+    public void to_string_returned_in_correct_format() throws InvalidFormatException {
+        //arrange
+        String inputAOC = "PEar150M";
+        String inputID = "AB1234";
+        String inputPassword = "abcD1234!@";
+        String expected = "Planet, Earth [PEar150M] 1.50E+5 km, 5.97E+24 kg";
+        SolarSystemInformation cut = new SolarSystemInformation(inputID, inputPassword, mockAstroService);
+        expect(mockAstroService.getStatusInfo(inputAOC)).andReturn("PEar150M,Planet,Earth,23,24,150000,5970000000000000000000000");
+        replay(mockAstroService);
+        //act
+        cut.initialiseAOCDetails(inputAOC);
+        String actual = cut.toString();
         //assert
         assertEquals(expected, actual);
         verify(mockAstroService);

@@ -48,6 +48,13 @@ public class SolarSystemInformation {
             setObjectType("Not Allowed");
         }
     }
+
+    @Override
+    public String toString() {
+        return getObjectType() +", "+getObjectName()+" ["+getAstronomicalObjectClassificationCode()+"] "+getSemiMajorAxis()+" km, "+getMass()+" kg";
+
+    }
+
     void initialiseAOCDetails(String astronomicalObjectClassificationCode) throws InvalidFormatException
     {
         if (!astronomicalObjectClassificationCode.matches("[S,P,M,D,A,C][0-9]{0,8}[A-Z][a-z]{2}[0-9]{1,3}[T,M,B,L]{1,2}"))
@@ -82,6 +89,8 @@ public class SolarSystemInformation {
                 setRadius(new BigDecimal(rad));
                 setSemiMajorAxis(new BigDecimal(sma));
                 setMass(new BigDecimal(massS));
+
+
             }
         }
     }
@@ -145,7 +154,10 @@ public class SolarSystemInformation {
         return mass;
     }
     private void setMass (BigDecimal mass){
-        this.mass = mass;
+        NumberFormat formatter = new DecimalFormat("0.0E0");
+        formatter.setRoundingMode(RoundingMode.HALF_UP);
+        formatter.setMinimumFractionDigits(2);
+        this.mass = new BigDecimal(formatter.format(mass));
     }
 }
 
