@@ -246,31 +246,31 @@ public class SolarSystemInformationTest
         assertEquals(expected, actual);
         verify(mockAstroService);
     }
-    /*@Test
+    @Test
     public void does_the_returned_string_info_split_properly_and_variables_are_set() throws InvalidFormatException {
         //arrange
         String inputAOC = "SSun27TL";
-        String expected = "SSun27TL,Earth,23,23,23,23";
         String inputID = "AB1234";
         String inputPassword = "abcD1234!@";
         String expectP1 = "SSun27TL";
         String expectP2 = "Earth";
-        int expectP3 = 23;
+        String expectP3 = "Planet";
         String expectP4 = "23";
         String expectP5 = "23";
-        BigDecimal expectP6 = "23";
-        BigDecimal expectP7 = "23";
+        String expectP6 = "23";
+        String expectP7 = "23";
         SolarSystemInformation cut = new SolarSystemInformation(inputID, inputPassword,mockAstroService);
-        expect(mockAstroService.getStatusInfo(inputAOC)).andReturn("SSun27TL,Earth,23,23,23,23");
+        expect(mockAstroService.getStatusInfo(inputAOC)).andReturn("SSun27TL,Earth,Planet,23,23,23,23");
         replay(mockAstroService);
         //act
-        String returnedp1 = cut.getAstronomicalObjectClassificationCode();
-        String returnedp2 = cut.getObjectName();
-        String returnedp3 = cut.getObjectType();
-        int returnedp4 = cut.getOrbitalPeriod();
-        BigDecimal returnedp5 = cut.getRadius();
-        BigDecimal returnedp6 = cut.getSemiMajorAxis();
-        BigDecimal returnedp7 = cut.getMass();
+        cut.initialiseAOCDetails(inputAOC);
+        String returnedp1 = cut.getP1();
+        String returnedp2 = cut.getP2();
+        String returnedp3 = cut.getP3();
+        String returnedp4 = cut.getP4();
+        String returnedp5 = cut.getP5();
+        String returnedp6 = cut.getP6();
+        String returnedp7 = cut.getP7();
         //assert
         assertEquals(expectP1,returnedp1);
         assertEquals(expectP2,returnedp2);
@@ -280,6 +280,6 @@ public class SolarSystemInformationTest
         assertEquals(expectP6,returnedp6);
         assertEquals(expectP7,returnedp7);
         verify(mockAstroService);
-    }*/
-
+    }
+    
 }

@@ -14,6 +14,20 @@ public class SolarSystemInformation {
     private BigDecimal semiMajorAxis;
     private BigDecimal mass;
     private IAstroService mockAstroService;
+    private String p1;
+    private String p2;
+    private String p3;
+    private String p4;
+    private String p5;
+    private String p6;
+    private String p7;
+    String getP1() { return p1; }
+    String getP2() { return p2; }
+    String getP3() { return p3; }
+    String getP4() { return p4; }
+    String getP5() { return p5; }
+    String getP6() { return p6; }
+    String getP7() { return p7; }
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////
     public SolarSystemInformation(String userID, String password, IAstroService mockAstroService)
     {
@@ -31,7 +45,7 @@ public class SolarSystemInformation {
             setObjectType("Not Allowed");
         }
     }
-    public void initialiseAOCDetails(String astronomicalObjectClassificationCode) throws InvalidFormatException
+    void initialiseAOCDetails(String astronomicalObjectClassificationCode) throws InvalidFormatException
     {
         if (!astronomicalObjectClassificationCode.matches("[S,P,M,D,A,C][0-9]{0,8}[A-Z][a-z]{2}[0-9]{1,3}[T,M,B,L]{1,2}"))
         {
@@ -40,12 +54,23 @@ public class SolarSystemInformation {
         else
             {
             setAstronomicalObjectClassificationCode(astronomicalObjectClassificationCode);
+
             String returned = mockAstroService.getStatusInfo(astronomicalObjectClassificationCode);
             if (!returned.matches("^[S,P,M,D,A,C][0-9]{0,8}[A-Z][a-z]{2}[0-9]{1,3}[T,M,B,L]{1,2}[,][A-Z][a-z]{1,8}[,][0-9]*[A-Z][a-z]{1,9}[,][0-9]*[,][0-9]*[,][0-9]*[,][0-9]*$"))
             {
                 throw new InvalidFormatException("No such classification or SMA code");
             }
-
+            else
+            {
+                String [] returnedStringArray = returned.split(",");
+                p1 = returnedStringArray[0];
+                p2 = returnedStringArray[1];
+                p3 = returnedStringArray[2];
+                p4 = returnedStringArray[3];
+                p5 = returnedStringArray[4];
+                p6 = returnedStringArray[5];
+                p7 = returnedStringArray[6];
+            }
         }
     }
 //////////////////////////////////////////////////////////Getters and Setters///////////////////////////////////////////
