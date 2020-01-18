@@ -1,6 +1,9 @@
 package solar;
 
 import java.math.BigDecimal;
+import java.math.RoundingMode;
+import java.text.DecimalFormat;
+import java.text.NumberFormat;
 
 public class SolarSystemInformation {
     private String userID;
@@ -132,7 +135,11 @@ public class SolarSystemInformation {
         return semiMajorAxis;
     }
     private void setSemiMajorAxis (BigDecimal semiMajorAxis){
-        this.semiMajorAxis = semiMajorAxis;
+        NumberFormat formatter = new DecimalFormat("0.0E0");
+        formatter.setRoundingMode(RoundingMode.HALF_UP);
+        formatter.setMinimumFractionDigits(2);
+
+        this.semiMajorAxis = new BigDecimal(formatter.format(semiMajorAxis));
     }
     public BigDecimal getMass () {
         return mass;

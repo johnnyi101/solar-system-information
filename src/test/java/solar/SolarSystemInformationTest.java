@@ -349,7 +349,7 @@ public class SolarSystemInformationTest {
         String inputAOC = "SSun27TL";
         String inputID = "AB1234";
         String inputPassword = "abcD1234!@";
-        BigDecimal expected = new BigDecimal(24);
+        BigDecimal expected = new BigDecimal(24.0);
         SolarSystemInformation cut = new SolarSystemInformation(inputID, inputPassword, mockAstroService);
         expect(mockAstroService.getStatusInfo(inputAOC)).andReturn("SSun27TL,Planet,Earth,23,24,25,26");
         replay(mockAstroService);
@@ -366,7 +366,7 @@ public class SolarSystemInformationTest {
         String inputAOC = "SSun27TL";
         String inputID = "AB1234";
         String inputPassword = "abcD1234!@";
-        BigDecimal expected = new BigDecimal(25);
+        BigDecimal expected = new BigDecimal("25.0");
         SolarSystemInformation cut = new SolarSystemInformation(inputID, inputPassword, mockAstroService);
         expect(mockAstroService.getStatusInfo(inputAOC)).andReturn("SSun27TL,Planet,Earth,23,24,25,26");
         replay(mockAstroService);
@@ -383,7 +383,7 @@ public class SolarSystemInformationTest {
         String inputAOC = "SSun27TL";
         String inputID = "AB1234";
         String inputPassword = "abcD1234!@";
-        BigDecimal expected = new BigDecimal(26);
+        BigDecimal expected = new BigDecimal("26.0");
         SolarSystemInformation cut = new SolarSystemInformation(inputID, inputPassword, mockAstroService);
         expect(mockAstroService.getStatusInfo(inputAOC)).andReturn("SSun27TL,Planet,Earth,23,24,25,26");
         replay(mockAstroService);
@@ -421,9 +421,9 @@ public class SolarSystemInformationTest {
         String type = "Planet";
         String name = "Earth";
         int op = 23;
-        BigDecimal expectedRadius = new BigDecimal(24);
-        BigDecimal expectedsma = new BigDecimal(25);
-        BigDecimal expectedMass = new BigDecimal(26);
+        BigDecimal expectedRadius = new BigDecimal("24.0");
+        BigDecimal expectedsma = new BigDecimal("25.0");
+        BigDecimal expectedMass = new BigDecimal("26.0");
         boolean expectedExists = true;
         SolarSystemInformation cut = new SolarSystemInformation(inputID, inputPassword, mockAstroService);
         expect(mockAstroService.getStatusInfo(inputAOC)).andReturn("SSun27TL,Planet,Earth,23,24,25,26");
@@ -451,6 +451,24 @@ public class SolarSystemInformationTest {
 
         verify(mockAstroService);
     }
+    @Test
+    public void SMA_returned_with_correct_formatting() throws InvalidFormatException {
+        //arrange
+        String inputAOC = "SSun27TL";
+        String inputID = "AB1234";
+        String inputPassword = "abcD1234!@";
+        BigDecimal expected = new BigDecimal("6.12E+010");
+        SolarSystemInformation cut = new SolarSystemInformation(inputID, inputPassword, mockAstroService);
+        expect(mockAstroService.getStatusInfo(inputAOC)).andReturn("SSun27TL,Planet,Earth,23,24,61230000000,26");
+        replay(mockAstroService);
+        //act
+        cut.initialiseAOCDetails(inputAOC);
+        BigDecimal actual = new BigDecimal(String.valueOf(cut.getSemiMajorAxis()));
+        //assert
+        assertEquals(expected, actual);
+        verify(mockAstroService);
+    }
+
 
      /*@Test
     public void if_returned_info_does_not_through_errors_then_exists_is_false_and_error_thrown() throws InvalidFormatException {
