@@ -394,4 +394,44 @@ public class SolarSystemInformationTest {
         assertEquals(expected, actual);
         verify(mockAstroService);
     }
+    @Test
+    public void if_returned_info_does_not_through_errors_then_exists_is_true() throws InvalidFormatException {
+        //arrange
+        String inputAOC = "SSun27TL";
+        String inputID = "AB1234";
+        String inputPassword = "abcD1234!@";
+        SolarSystemInformation cut = new SolarSystemInformation(inputID, inputPassword, mockAstroService);
+        expect(mockAstroService.getStatusInfo(inputAOC)).andReturn("SSun27TL,Planet,Earth,23,24,25,26");
+        replay(mockAstroService);
+        //act
+        cut.initialiseAOCDetails(inputAOC);
+        boolean actual = cut.getExists();
+        //assert
+        assertTrue(actual);
+        verify(mockAstroService);
+    }
+    
+    /*@Test
+    public void all_fields_set_correctly_and_exists_field_set_to_true() throws InvalidFormatException {
+        //arrange
+        String inputAOC = "SSun27TL";
+        String inputID = "AB1234";
+        String inputPassword = "abcD1234!@";
+        String code = "SSun27TL";
+        String type = "Planet";
+        int op = 23;
+        BigDecimal expectedRadius = new BigDecimal(24);
+        BigDecimal expectedsma = new BigDecimal(25);
+        BigDecimal expectedMass = new BigDecimal(26);
+        boolean expectedExists = true;
+        SolarSystemInformation cut = new SolarSystemInformation(inputID, inputPassword, mockAstroService);
+        expect(mockAstroService.getStatusInfo(inputAOC)).andReturn("SSun27TL,Planet,Earth,23,24,25,26");
+        replay(mockAstroService);
+        //act
+        cut.initialiseAOCDetails(inputAOC);
+        BigDecimal actual = new BigDecimal(String.valueOf(cut.getMass()));
+        //assert
+        assertEquals(expected, actual);
+        verify(mockAstroService);
+    }*/
 }

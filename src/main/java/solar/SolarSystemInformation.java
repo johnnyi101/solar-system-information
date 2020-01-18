@@ -62,6 +62,7 @@ public class SolarSystemInformation {
             }
             else
             {
+                setExists(true);
                 String [] returnedStringArray = returned.split(",");
                 AOC = returnedStringArray[0];
                 type = returnedStringArray[1];
