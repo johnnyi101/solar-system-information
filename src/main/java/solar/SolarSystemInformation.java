@@ -8,7 +8,7 @@ public class SolarSystemInformation {
     private String objectType;
     private String objectName;
     private String astronomicalObjectClassificationCode;
-    private Boolean exists;
+    private Boolean exists = false;
     private int orbitalPeriod;
     private BigDecimal radius;
     private BigDecimal semiMajorAxis;
@@ -58,7 +58,9 @@ public class SolarSystemInformation {
             String returned = mockAstroService.getStatusInfo(astronomicalObjectClassificationCode);
             if (!returned.matches("^[S,P,M,D,A,C][0-9]{0,8}[A-Z][a-z]{2}[0-9]{1,3}[T,M,B,L]{1,2}[,][A-Z][a-z]{1,8}[,][0-9]*[A-Z][a-z]{1,9}[,][0-9]*[,][0-9]*[,][0-9]*[,][0-9]*$"))
             {
+                setExists(false);
                 throw new InvalidFormatException("No such classification or SMA code");
+
             }
             else
             {
