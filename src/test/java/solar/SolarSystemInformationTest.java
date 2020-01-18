@@ -334,11 +334,62 @@ public class SolarSystemInformationTest {
         String inputPassword = "abcD1234!@";
         int expected = 23;
         SolarSystemInformation cut = new SolarSystemInformation(inputID, inputPassword, mockAstroService);
-        expect(mockAstroService.getStatusInfo(inputAOC)).andReturn("SSun27TL,Planet,Earth,23,23,23,23");
+        expect(mockAstroService.getStatusInfo(inputAOC)).andReturn("SSun27TL,Planet,Earth,23,24,25,26");
         replay(mockAstroService);
         //act
         cut.initialiseAOCDetails(inputAOC);
         int actual = cut.getOrbitalPeriod();
+        //assert
+        assertEquals(expected, actual);
+        verify(mockAstroService);
+    }
+    @Test
+    public void object_radius_set_correct() throws InvalidFormatException {
+        //arrange
+        String inputAOC = "SSun27TL";
+        String inputID = "AB1234";
+        String inputPassword = "abcD1234!@";
+        BigDecimal expected = new BigDecimal(24);
+        SolarSystemInformation cut = new SolarSystemInformation(inputID, inputPassword, mockAstroService);
+        expect(mockAstroService.getStatusInfo(inputAOC)).andReturn("SSun27TL,Planet,Earth,23,24,25,26");
+        replay(mockAstroService);
+        //act
+        cut.initialiseAOCDetails(inputAOC);
+        BigDecimal actual = new BigDecimal(String.valueOf(cut.getRadius()));
+        //assert
+        assertEquals(expected, actual);
+        verify(mockAstroService);
+    }
+    @Test
+    public void object_sma_set_correct() throws InvalidFormatException {
+        //arrange
+        String inputAOC = "SSun27TL";
+        String inputID = "AB1234";
+        String inputPassword = "abcD1234!@";
+        BigDecimal expected = new BigDecimal(25);
+        SolarSystemInformation cut = new SolarSystemInformation(inputID, inputPassword, mockAstroService);
+        expect(mockAstroService.getStatusInfo(inputAOC)).andReturn("SSun27TL,Planet,Earth,23,24,25,26");
+        replay(mockAstroService);
+        //act
+        cut.initialiseAOCDetails(inputAOC);
+        BigDecimal actual = new BigDecimal(String.valueOf(cut.getSemiMajorAxis()));
+        //assert
+        assertEquals(expected, actual);
+        verify(mockAstroService);
+    }
+    @Test
+    public void object_mass_set_correct() throws InvalidFormatException {
+        //arrange
+        String inputAOC = "SSun27TL";
+        String inputID = "AB1234";
+        String inputPassword = "abcD1234!@";
+        BigDecimal expected = new BigDecimal(26);
+        SolarSystemInformation cut = new SolarSystemInformation(inputID, inputPassword, mockAstroService);
+        expect(mockAstroService.getStatusInfo(inputAOC)).andReturn("SSun27TL,Planet,Earth,23,24,25,26");
+        replay(mockAstroService);
+        //act
+        cut.initialiseAOCDetails(inputAOC);
+        BigDecimal actual = new BigDecimal(String.valueOf(cut.getMass()));
         //assert
         assertEquals(expected, actual);
         verify(mockAstroService);

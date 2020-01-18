@@ -73,6 +73,9 @@ public class SolarSystemInformation {
                 setObjectType(type);
                 setObjectName(name);
                 setOrbitalPeriod(Integer.parseInt(orbital));
+                setRadius(new BigDecimal(rad));
+                setSemiMajorAxis(new BigDecimal(sma));
+                setMass(new BigDecimal(massS));
             }
         }
     }
