@@ -326,6 +326,7 @@ public class SolarSystemInformationTest {
         assertEquals(expected, actual);
         verify(mockAstroService);
     }
+
     @Test
     public void object_orbital_period_set_correct() throws InvalidFormatException {
         //arrange
@@ -343,6 +344,7 @@ public class SolarSystemInformationTest {
         assertEquals(expected, actual);
         verify(mockAstroService);
     }
+
     @Test
     public void object_radius_set_correct() throws InvalidFormatException {
         //arrange
@@ -360,6 +362,7 @@ public class SolarSystemInformationTest {
         assertEquals(expected, actual);
         verify(mockAstroService);
     }
+
     @Test
     public void object_sma_set_correct() throws InvalidFormatException {
         //arrange
@@ -377,6 +380,7 @@ public class SolarSystemInformationTest {
         assertEquals(expected, actual);
         verify(mockAstroService);
     }
+
     @Test
     public void object_mass_set_correct() throws InvalidFormatException {
         //arrange
@@ -394,6 +398,7 @@ public class SolarSystemInformationTest {
         assertEquals(expected, actual);
         verify(mockAstroService);
     }
+
     @Test
     public void if_returned_info_does_not_through_errors_then_exists_is_true() throws InvalidFormatException {
         //arrange
@@ -431,7 +436,7 @@ public class SolarSystemInformationTest {
         //act
         cut.initialiseAOCDetails(inputAOC);
         String actualCode = cut.getAstronomicalObjectClassificationCode();
-        String actualName=cut.getObjectName();
+        String actualName = cut.getObjectName();
         String actualType = cut.getObjectType();
         int actualOp = cut.getOrbitalPeriod();
         BigDecimal actualRadius = new BigDecimal(String.valueOf(cut.getRadius()));
@@ -451,6 +456,7 @@ public class SolarSystemInformationTest {
 
         verify(mockAstroService);
     }
+
     @Test
     public void SMA_returned_with_correct_formatting() throws InvalidFormatException {
         //arrange
@@ -468,6 +474,7 @@ public class SolarSystemInformationTest {
         assertEquals(expected, actual);
         verify(mockAstroService);
     }
+
     @Test
     public void mass_returned_with_correct_formatting() throws InvalidFormatException {
         //arrange
@@ -485,6 +492,7 @@ public class SolarSystemInformationTest {
         assertEquals(expected, actual);
         verify(mockAstroService);
     }
+
     @Test
     public void to_string_returned_in_correct_format() throws InvalidFormatException {
         //arrange
@@ -502,6 +510,75 @@ public class SolarSystemInformationTest {
         assertEquals(expected, actual);
         verify(mockAstroService);
     }
+
+    @Test
+    public void all_fields_set_to_zero_and_exists_field_set_to_false_if_username_wrong() throws InvalidFormatException {
+        //arrange
+        String inputAOC = "SSun27TL";
+        String inputID = "AB123";
+        String inputPassword = "abcD1234!@";
+        String code = null;
+        String type = "Not Allowed";
+        String name = "Not Allowed";
+        int op = 0;
+        BigDecimal expectedRadius = new BigDecimal(0);
+        BigDecimal expectedsma = new BigDecimal("0.00");
+        BigDecimal expectedMass = new BigDecimal("0.00");
+        boolean expectedExists = false;
+        SolarSystemInformation cut = new SolarSystemInformation(inputID, inputPassword, mockAstroService);
+        //act
+        String actualCode = cut.getAstronomicalObjectClassificationCode();
+        String actualName = cut.getObjectName();
+        String actualType = cut.getObjectType();
+        int actualOp = cut.getOrbitalPeriod();
+        BigDecimal actualRadius = new BigDecimal(String.valueOf(cut.getRadius()));
+        BigDecimal actualSma = new BigDecimal(String.valueOf(cut.getSemiMajorAxis()));
+        BigDecimal actualMass = new BigDecimal(String.valueOf(cut.getMass()));
+        boolean actualExists = cut.getExists();
+        //assert
+        assertEquals(code, actualCode);
+        assertEquals(type, actualType);
+        assertEquals(name, actualName);
+        assertEquals(op, actualOp);
+        assertEquals(expectedRadius, actualRadius);
+        assertEquals(expectedsma, actualSma);
+        assertEquals(expectedMass, actualMass);
+        assertEquals(expectedExists, actualExists);
+    }
+
+    @Test
+    public void all_fields_set_to_zero_and_exists_field_set_to_false_if_password_wrong() throws InvalidFormatException {
+        //arrange
+        String inputAOC = "SSun27TL";
+        String inputID = "AB1234";
+        String inputPassword = "23232332";
+        String code = null;
+        String type = "Not Allowed";
+        String name = "Not Allowed";
+        int op = 0;
+        BigDecimal expectedRadius = new BigDecimal(0);
+        BigDecimal expectedsma = new BigDecimal("0.00");
+        BigDecimal expectedMass = new BigDecimal("0.00");
+        boolean expectedExists = false;
+        SolarSystemInformation cut = new SolarSystemInformation(inputID, inputPassword, mockAstroService);
+        //act
+        String actualCode = cut.getAstronomicalObjectClassificationCode();
+        String actualName = cut.getObjectName();
+        String actualType = cut.getObjectType();
+        int actualOp = cut.getOrbitalPeriod();
+        BigDecimal actualRadius = new BigDecimal(String.valueOf(cut.getRadius()));
+        BigDecimal actualSma = new BigDecimal(String.valueOf(cut.getSemiMajorAxis()));
+        BigDecimal actualMass = new BigDecimal(String.valueOf(cut.getMass()));
+        boolean actualExists = cut.getExists();
+        //assert
+        assertEquals(code, actualCode);
+        assertEquals(type, actualType);
+        assertEquals(name, actualName);
+        assertEquals(op, actualOp);
+        assertEquals(expectedRadius, actualRadius);
+        assertEquals(expectedsma, actualSma);
+        assertEquals(expectedMass, actualMass);
+        assertEquals(expectedExists, actualExists);
 
 
      /*@Test
@@ -527,4 +604,5 @@ public class SolarSystemInformationTest {
         assertFalse(actual);
         verify(mockAstroService);
     }*/
+    }
 }

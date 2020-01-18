@@ -37,15 +37,22 @@ public class SolarSystemInformation {
         this.mockAstroService = mockAstroService;
         this.userID = userID;
         this.password = password;
-        if (userID.matches("[A-Z]{2}[0-9]{4}") && !userID.endsWith("0000") && password.matches("^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[@$!%*?&])[A-Za-z[0-9]@$!%*?&]{10,}$"))
+        if (!userID.matches("[A-Z]{2}[0-9]{4}") || userID.endsWith("0000") || !password.matches("^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[@$!%*?&])[A-Za-z[0-9]@$!%*?&]{10,}$"))
         {
-            setObjectName("Valid");
-            setObjectType("Valid");
+
+            setObjectName("Not Allowed");
+            setObjectType("Not Allowed");
+            setExists(false);
+            setMass(new BigDecimal(0));
+            setSemiMajorAxis(new BigDecimal(0));
+            setRadius(new BigDecimal(0));
+            setOrbitalPeriod(0);
+
         }
         else
             {
-            setObjectName("Not Allowed");
-            setObjectType("Not Allowed");
+                setObjectName("Valid");
+                setObjectType("Valid");
         }
     }
 
