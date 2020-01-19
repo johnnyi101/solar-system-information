@@ -106,11 +106,11 @@ public class SolarSystemInformation {
     public String getUserID() { return userID; }
     public void setUserID(String userID) { this.userID = userID; }
     public String getObjectType() { return objectType; }
-    public void setObjectType(String objectType) { this.objectType = objectType; }
+    private void setObjectType(String objectType) { this.objectType = objectType; }
     public String getObjectName() { return objectName; }
-    public void setObjectName(String objectName) { this.objectName = objectName; }
+    private void setObjectName(String objectName) { this.objectName = objectName; }
     public String getPassword() { return password; }
-    public void setPassword(String password) { this.password = password; }
+    private void setPassword(String password) { this.password = password; }
     public String getAstronomicalObjectClassificationCode() { return astronomicalObjectClassificationCode; }
     private void setAstronomicalObjectClassificationCode(String astronomicalObjectClassificationCode){ this.astronomicalObjectClassificationCode = astronomicalObjectClassificationCode;}
     public Boolean getExists () { return exists; }
