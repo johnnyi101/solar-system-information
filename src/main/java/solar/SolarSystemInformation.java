@@ -77,7 +77,7 @@ public class SolarSystemInformation {
                 setRadius(new BigDecimal(0));
                 setOrbitalPeriod(0);
             }
-            else if (!returned.matches("^[S,P,M,D,A,C][0-9]{0,8}[A-Z][a-z]{2}[0-9]{1,3}[T,M,B,L]{1,2}[,][A-Z][a-z ]{1,20}[,][0-9]*[A-Z][a-z]{1,9}[,][0-9]*[,][0-9]*[,][0-9]*[,][0-9]*$"))
+            else if (!returned.matches("^[S,P,M,D,A,C][0-9]{0,8}[A-Z][a-z]{2}[0-9]{1,3}[T,M,B,L]{1,2}[,][A-Z][a-z ]{1,20}[,][0-9 ]*[ A-Z][a-z]{1,9}[,][0-9]*[,][0-9]*[,][0-9]*[,][0-9]*$"))
             {
                 setExists(false);
                 throw new InvalidFormatException("No such classification or SMA code");

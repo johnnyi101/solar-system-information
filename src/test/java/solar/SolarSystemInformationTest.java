@@ -715,7 +715,7 @@ public class SolarSystemInformationTest {
         String inputAOC = "APal416M";
         String inputID = "AB1234";
         String inputPassword = "abcD1234!@";
-        String expected = "Asteroid, Pallas [APal416M] 4.16E+8 km, 4.58E+17 kg";
+        String expected = "Asteroid,Pallas [APal416M] 4.16E+8 km, 4.58E+17 kg";
         SolarSystemInformation cut = new SolarSystemInformation(inputID, inputPassword, mockAstroService);
         expect(mockAstroService.getStatusInfo(inputAOC)).andReturn("APal416M,Asteroid,Pallas,232423423,3545,416000000,458458958968659059");
         replay(mockAstroService);
@@ -726,17 +726,16 @@ public class SolarSystemInformationTest {
         assertEquals(expected, actual);
         verify(mockAstroService);
     }
-    /*
+
     @Test
-    public void test_diffferent_valued_entries_7()
-    {
+    public void test_diffferent_valued_entries_7() throws InvalidFormatException {
         //arrange
-        String inputAOC = "PEar150M";
+        String inputAOC = "A3Jun401M";
         String inputID = "AB1234";
         String inputPassword = "abcD1234!@";
-        String expected = "Planet, Earth [PEar150M] 1.50E+5 km, 5.97E+24 kg";
+        String expected = "Asteroid,3 Juno [A3Jun401M] 4.01E+8 km, 5.47E+15 kg";
         SolarSystemInformation cut = new SolarSystemInformation(inputID, inputPassword, mockAstroService);
-        expect(mockAstroService.getStatusInfo(inputAOC)).andReturn("PEar150M,Planet,Earth,23,24,150000,5970000000000000000000000");
+        expect(mockAstroService.getStatusInfo(inputAOC)).andReturn("A3Jun401M,Asteroid,3 Juno,2543,45524,401000000,5469859698569690");
         replay(mockAstroService);
         //act
         cut.initialiseAOCDetails(inputAOC);
@@ -745,6 +744,7 @@ public class SolarSystemInformationTest {
         assertEquals(expected, actual);
         verify(mockAstroService);
     }
+    /*
     @Test
     public void test_diffferent_valued_entries_8()
     {
