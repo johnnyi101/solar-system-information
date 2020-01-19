@@ -47,7 +47,6 @@ public class SolarSystemInformation {
             setSemiMajorAxis(new BigDecimal(0));
             setRadius(new BigDecimal(0));
             setOrbitalPeriod(0);
-
         }
         else
             {
@@ -55,13 +54,10 @@ public class SolarSystemInformation {
                 setObjectType("Valid");
         }
     }
-
     @Override
     public String toString() {
         return getObjectType() +", "+getObjectName()+" ["+getAstronomicalObjectClassificationCode()+"] "+getSemiMajorAxis()+" km, "+getMass()+" kg";
-
     }
-
     void initialiseAOCDetails(String astronomicalObjectClassificationCode) throws InvalidFormatException
     {
         if (!astronomicalObjectClassificationCode.matches("[S,P,M,D,A,C][0-9]{0,8}[A-Z][a-z]{2}[0-9]{1,3}[T,M,B,L]{1,2}"))
@@ -73,11 +69,20 @@ public class SolarSystemInformation {
             setAstronomicalObjectClassificationCode(astronomicalObjectClassificationCode);
 
             String returned = mockAstroService.getStatusInfo(astronomicalObjectClassificationCode);
-            if (!returned.matches("^[S,P,M,D,A,C][0-9]{0,8}[A-Z][a-z]{2}[0-9]{1,3}[T,M,B,L]{1,2}[,][A-Z][a-z]{1,8}[,][0-9]*[A-Z][a-z]{1,9}[,][0-9]*[,][0-9]*[,][0-9]*[,][0-9]*$"))
+            if(returned.equals("No such astronomical object classification code"))
+            {
+                setAstronomicalObjectClassificationCode(returned);
+                setObjectName(null);
+                setObjectType(null);
+                setMass(new BigDecimal(0));
+                setSemiMajorAxis(new BigDecimal(0));
+                setRadius(new BigDecimal(0));
+                setOrbitalPeriod(0);
+            }
+            else if (!returned.matches("^[S,P,M,D,A,C][0-9]{0,8}[A-Z][a-z]{2}[0-9]{1,3}[T,M,B,L]{1,2}[,][A-Z][a-z]{1,8}[,][0-9]*[A-Z][a-z]{1,9}[,][0-9]*[,][0-9]*[,][0-9]*[,][0-9]*$"))
             {
                 setExists(false);
                 throw new InvalidFormatException("No such classification or SMA code");
-
             }
             else
             {
@@ -96,8 +101,6 @@ public class SolarSystemInformation {
                 setRadius(new BigDecimal(rad));
                 setSemiMajorAxis(new BigDecimal(sma));
                 setMass(new BigDecimal(massS));
-
-
             }
         }
     }

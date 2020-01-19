@@ -514,7 +514,6 @@ public class SolarSystemInformationTest {
     @Test
     public void all_fields_set_to_zero_and_exists_field_set_to_false_if_username_wrong() throws InvalidFormatException {
         //arrange
-        String inputAOC = "SSun27TL";
         String inputID = "AB123";
         String inputPassword = "abcD1234!@";
         String code = null;
@@ -549,7 +548,6 @@ public class SolarSystemInformationTest {
     @Test
     public void all_fields_set_to_zero_and_exists_field_set_to_false_if_password_wrong() throws InvalidFormatException {
         //arrange
-        String inputAOC = "SSun27TL";
         String inputID = "AB1234";
         String inputPassword = "23232332";
         String code = null;
@@ -580,29 +578,80 @@ public class SolarSystemInformationTest {
         assertEquals(expectedMass, actualMass);
         assertEquals(expectedExists, actualExists);
 
-
-     /*@Test
-    public void if_returned_info_does_not_through_errors_then_exists_is_false_and_error_thrown() throws InvalidFormatException {
+    }
+    @Test
+    public void if_code_doesnt_exist_then_returned_non_existance_string_is_assigned_to_code_variable() throws InvalidFormatException {
         //arrange
-        String inputAOC = "SSun27TL";
+        String inputAOC = "PEar150M";
         String inputID = "AB1234";
         String inputPassword = "abcD1234!@";
-        String expectedMessage = "No such classification or SMA code";
+        String expected = "No such astronomical object classification code";
         SolarSystemInformation cut = new SolarSystemInformation(inputID, inputPassword, mockAstroService);
-        expect(mockAstroService.getStatusInfo(inputAOC)).andReturn("SSun27TL,planet,Earth,23,24,25,26");
+        expect(mockAstroService.getStatusInfo(inputAOC)).andReturn("No such astronomical object classification code");
         replay(mockAstroService);
         //act
         cut.initialiseAOCDetails(inputAOC);
-        boolean actual = cut.getExists();
-        Exception exception = assertThrows(InvalidFormatException.class, () -> {
-            cut.initialiseAOCDetails(inputAOC);});
-            String message = exception.getMessage();
+        String actual = cut.getAstronomicalObjectClassificationCode();
         //assert
-        assertEquals(expectedMessage, message);
-        assertThrows(InvalidFormatException.class, () -> {
-                    cut.initialiseAOCDetails(inputAOC);});
-        assertFalse(actual);
+        assertEquals(expected, actual );
         verify(mockAstroService);
-    }*/
     }
+    @Test
+    public void if_code_doesnt_exist_then_returned_non_existance_string_is_assigned_to_code_variable_and_exist_is_set_to_false() throws InvalidFormatException {
+        //arrange
+        String inputAOC = "PEar150M";
+        String inputID = "AB1234";
+        String inputPassword = "abcD1234!@";
+        String expectedCode = "No such astronomical object classification code";
+        SolarSystemInformation cut = new SolarSystemInformation(inputID, inputPassword, mockAstroService);
+        expect(mockAstroService.getStatusInfo(inputAOC)).andReturn("No such astronomical object classification code");
+        replay(mockAstroService);
+        //act
+        cut.initialiseAOCDetails(inputAOC);
+        String actualCode = cut.getAstronomicalObjectClassificationCode();
+        boolean actualExists = cut.getExists();
+        //assert
+        assertEquals(expectedCode, actualCode);
+        assertFalse(actualExists);
+        verify(mockAstroService);
+    }
+    @Test
+    public void if_code_doesnt_exist_then_returned_non_existance_string_is_assigned_to_code_variable_and_exist_is_set_to_false_and_all_else_is_0_or_null() throws InvalidFormatException {
+        //arrange
+        String inputAOC = "PEar150M";
+        String inputID = "AB1234";
+        String inputPassword = "abcD1234!@";
+        String expectedCode = "No such astronomical object classification code";
+        String type = null;
+        String name = null;
+        int op = 0;
+        BigDecimal expectedRadius = new BigDecimal(0);
+        BigDecimal expectedsma = new BigDecimal("0.00");
+        BigDecimal expectedMass = new BigDecimal("0.00");
+        SolarSystemInformation cut = new SolarSystemInformation(inputID, inputPassword, mockAstroService);
+        expect(mockAstroService.getStatusInfo(inputAOC)).andReturn("No such astronomical object classification code");
+        replay(mockAstroService);
+        //act
+        cut.initialiseAOCDetails(inputAOC);
+        String actualCode = cut.getAstronomicalObjectClassificationCode();
+        boolean actualExists = cut.getExists();
+        String actualName = cut.getObjectName();
+        String actualType = cut.getObjectType();
+        int actualOp = cut.getOrbitalPeriod();
+        BigDecimal actualRadius = new BigDecimal(String.valueOf(cut.getRadius()));
+        BigDecimal actualSma = new BigDecimal(String.valueOf(cut.getSemiMajorAxis()));
+        BigDecimal actualMass = new BigDecimal(String.valueOf(cut.getMass()));
+        //assert
+        assertEquals(expectedCode, actualCode);
+        assertEquals(type, actualType);
+        assertEquals(name, actualName);
+        assertEquals(op, actualOp);
+        assertEquals(expectedRadius, actualRadius);
+        assertEquals(expectedsma, actualSma);
+        assertEquals(expectedMass, actualMass);
+        assertFalse(actualExists);
+        verify(mockAstroService);
+    }
+
+
 }
