@@ -147,7 +147,7 @@ class SolarSystemInformationTest {
         assertEquals(expectedOutInfo, resultInfo);
     }
     @Test
-    void AOC_getter_validation_doesnt_return_info_when_code_format_bad() throws InvalidFormatException {
+    void AOC_getter_validation_doesnt_return_info_when_code_format_bad_and_error_thrown() throws InvalidFormatException {
         //arrange
         String inputID = "AB1234";
         String inputPassword = "abcD1234!@";
@@ -221,7 +221,7 @@ class SolarSystemInformationTest {
         verify(mockAstroService);
     }
     @Test
-    void string_returned_from_WS_when_auth_is_true() {
+    void string_returned_from_WS_when_authentification_returns_true() {
         //arrange
         String inputAOC = "SSun27TL";
         String expected = "SSun27TL,Planet,Earth,23,23,23,23";
@@ -371,7 +371,7 @@ class SolarSystemInformationTest {
         verify(mockAstroService);
     }
     @Test
-    void if_returned_info_does_not_through_errors_then_exists_is_true() throws InvalidFormatException {
+    void if_returned_info_does_not_throw_errors_then_exists_is_true() throws InvalidFormatException {
         //arrange
         String inputAOC = "SSun27TL";
         String inputID = "AB1234";
