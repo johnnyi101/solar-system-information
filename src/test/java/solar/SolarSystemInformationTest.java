@@ -6,12 +6,11 @@ import java.math.BigDecimal;
 import static org.junit.jupiter.api.Assertions.*;
 import static org.easymock.EasyMock.createMock;
 import static org.easymock.EasyMock.expect;
-import static org.easymock.EasyMock.expectLastCall;
 import static org.easymock.EasyMock.replay;
 import static org.easymock.EasyMock.verify;
 
-public class SolarSystemInformationTest {
-    IAstroService mockAstroService;
+class SolarSystemInformationTest {
+    private IAstroService mockAstroService;
 
     ///////////////////////////////////Set-Up////////////////////////////////////////////////////////////////////////////
     @BeforeEach
@@ -20,7 +19,7 @@ public class SolarSystemInformationTest {
     }
     ///////////////////////////////////User ID and password validation tests///////////////////////////////////////////////
     @Test
-    public void a_valid_user_idlength_is_accepted() {
+    void a_valid_user_idlength_is_accepted() {
         //arrange
         String inputID = "AB1234";
         String inputPassword = "abcD1234!@";
@@ -36,11 +35,10 @@ public class SolarSystemInformationTest {
         assertEquals(expectedObjectType, resultOT);
     }
     @Test
-    public void id_with_two_capital_letters_at_start_is_accepted() {
+    void id_with_two_capital_letters_at_start_is_accepted() {
         //arrange
         String inputID = "AB1234";
         String inputPassword = "abcD1234!@";
-        String inputAOC = "SSun27TL";
         String expectedObjectType = "Valid";
         String expectedObjectName = "Valid";
         SolarSystemInformation cut = new SolarSystemInformation(inputID, inputPassword, mockAstroService);
@@ -52,11 +50,10 @@ public class SolarSystemInformationTest {
         assertEquals(expectedObjectType, resultOT);
     }
     @Test
-    public void id_with_four_numbers_at_end_is_accepted() {
+    void id_with_four_numbers_at_end_is_accepted() {
         //arrange
         String inputID = "AB1234";
         String inputPassword = "abcD1234!@";
-        String inputAOC = "SSun27TL";
         String expectedObjectType = "Valid";
         String expectedObjectName = "Valid";
         SolarSystemInformation cut = new SolarSystemInformation(inputID, inputPassword, mockAstroService);
@@ -68,11 +65,10 @@ public class SolarSystemInformationTest {
         assertEquals(expectedObjectType, resultOT);
     }
     @Test
-    public void erroneous_entries_are_not_allowed() {
+    void erroneous_entries_are_not_allowed() {
         //arrange
         String inputID = "1B12/4";
         String inputPassword = "abcD1234!@";
-        String inputAOC = "SSun27TL";
         String expectedObjectType = "Not Allowed";
         String expectedObjectName = "Not Allowed";
         SolarSystemInformation cut = new SolarSystemInformation(inputID, inputPassword, mockAstroService);
@@ -84,11 +80,10 @@ public class SolarSystemInformationTest {
         assertEquals(expectedObjectType, resultOT);
     }
     @Test
-    public void user_ID_cannot_end_in_four_zeros() {
+    void user_ID_cannot_end_in_four_zeros() {
         //arrange
         String inputID = "AB0000";
         String inputPassword = "abcD1234!@";
-        String inputAOC = "SSun27TL";
         String expectedObjectType = "Not Allowed";
         String expectedObjectName = "Not Allowed";
         SolarSystemInformation cut = new SolarSystemInformation(inputID, inputPassword, mockAstroService);
@@ -100,11 +95,10 @@ public class SolarSystemInformationTest {
         assertEquals(expectedObjectType, resultOT);
     }
     @Test
-    public void password_must_be_at_least_ten_characters_in_length() {
+    void password_must_be_at_least_ten_characters_in_length() {
         //arrange
         String inputID = "ABCD1234!";
         String inputPassword = "abcD1234!@";
-        String inputAOC = "SSun27TL";
         String expectedObjectType = "Not Allowed";
         String expectedObjectName = "Not Allowed";
         SolarSystemInformation cut = new SolarSystemInformation(inputID, inputPassword, mockAstroService);
@@ -116,11 +110,12 @@ public class SolarSystemInformationTest {
         assertEquals(expectedObjectType, resultOT);
     }
     @Test
-    public void password_must_have_one_upper_lower_special() {
+    void password_must_have_one_upper_lower_special() {
         //arrange
         String inputID = "AB1234";
+
+
         String inputPassword = "abcD1234!@";
-        String inputAOC = "SSun27TL";
         String expectedObjectType = "Valid";
         String expectedObjectName = "Valid";
         SolarSystemInformation cut = new SolarSystemInformation(inputID, inputPassword, mockAstroService);
@@ -133,7 +128,7 @@ public class SolarSystemInformationTest {
     }
     ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     @Test
-    public void AOC_getter_validation_returns_info_when_code_format_good() throws InvalidFormatException {
+    void AOC_getter_validation_returns_info_when_code_format_good() throws InvalidFormatException {
         //arrange
         String inputID = "AB1234";
         String inputPassword = "abcD1234!@";
@@ -152,7 +147,7 @@ public class SolarSystemInformationTest {
         assertEquals(expectedOutInfo, resultInfo);
     }
     @Test
-    public void AOC_getter_validation_doesnt_return_info_when_code_format_bad() throws InvalidFormatException {
+    void AOC_getter_validation_doesnt_return_info_when_code_format_bad() throws InvalidFormatException {
         //arrange
         String inputID = "AB1234";
         String inputPassword = "abcD1234!@";
@@ -165,7 +160,7 @@ public class SolarSystemInformationTest {
         });
     }
     @Test
-    public void error_thrown_when_info_returned_in_wrong_format() throws InvalidFormatException {
+    void error_thrown_when_info_returned_in_wrong_format() throws InvalidFormatException {
         //arrange
         String inputID = "AB1234";
         String inputPassword = "abcD1234!@";
@@ -184,7 +179,7 @@ public class SolarSystemInformationTest {
         });
     }
     @Test
-    public void AOC_getter_validation_bad_format_gets_error() throws InvalidFormatException {
+    void AOC_getter_validation_bad_format_gets_error() throws InvalidFormatException {
         //arrange
         String inputID = "AB1234";
         String inputPassword = "abcD1234!@";
@@ -200,7 +195,7 @@ public class SolarSystemInformationTest {
         assertEquals(expectedOut, actualOut);
     }
     @Test
-    public void boolean_true_returned_if_credentials_are_correct() {
+    void boolean_true_returned_if_credentials_are_correct() {
         //arrange
         String inputID = "AB1234";
         String inputPassword = "abcD1234!@";
@@ -213,7 +208,7 @@ public class SolarSystemInformationTest {
         verify(mockAstroService);
     }
     @Test
-    public void boolean_false_returned_if_credentials_are_wrong() {
+    void boolean_false_returned_if_credentials_are_wrong() {
         //arrange
         String inputID = "AB1234";
         String inputPassword = "abcD1234!@";
@@ -226,7 +221,7 @@ public class SolarSystemInformationTest {
         verify(mockAstroService);
     }
     @Test
-    public void string_returned_from_WS_when_auth_is_true() {
+    void string_returned_from_WS_when_auth_is_true() {
         //arrange
         String inputAOC = "SSun27TL";
         String expected = "SSun27TL,Planet,Earth,23,23,23,23";
@@ -239,7 +234,7 @@ public class SolarSystemInformationTest {
         verify(mockAstroService);
     }
     @Test
-    public void does_the_returned_string_info_split_properly_and_variables_are_set() throws InvalidFormatException {
+    void does_the_returned_string_info_split_properly_and_variables_are_set() throws InvalidFormatException {
         //arrange
         String inputAOC = "SSun27TL";
         String inputID = "AB1234";
@@ -274,7 +269,7 @@ public class SolarSystemInformationTest {
         verify(mockAstroService);
     }
     @Test
-    public void object_type_set_correct() throws InvalidFormatException {
+    void object_type_set_correct() throws InvalidFormatException {
         //arrange
         String inputAOC = "SSun27TL";
         String inputID = "AB1234";
@@ -291,7 +286,7 @@ public class SolarSystemInformationTest {
         verify(mockAstroService);
     }
     @Test
-    public void object_name_set_correct() throws InvalidFormatException {
+    void object_name_set_correct() throws InvalidFormatException {
         //arrange
         String inputAOC = "SSun27TL";
         String inputID = "AB1234";
@@ -308,7 +303,7 @@ public class SolarSystemInformationTest {
         verify(mockAstroService);
     }
     @Test
-    public void object_orbital_period_set_correct() throws InvalidFormatException {
+    void object_orbital_period_set_correct() throws InvalidFormatException {
         //arrange
         String inputAOC = "SSun27TL";
         String inputID = "AB1234";
@@ -325,7 +320,7 @@ public class SolarSystemInformationTest {
         verify(mockAstroService);
     }
     @Test
-    public void object_radius_set_correct() throws InvalidFormatException {
+    void object_radius_set_correct() throws InvalidFormatException {
         //arrange
         String inputAOC = "SSun27TL";
         String inputID = "AB1234";
@@ -342,7 +337,7 @@ public class SolarSystemInformationTest {
         verify(mockAstroService);
     }
     @Test
-    public void object_sma_set_correct() throws InvalidFormatException {
+    void object_sma_set_correct() throws InvalidFormatException {
         //arrange
         String inputAOC = "SSun27TL";
         String inputID = "AB1234";
@@ -359,7 +354,7 @@ public class SolarSystemInformationTest {
         verify(mockAstroService);
     }
     @Test
-    public void object_mass_set_correct() throws InvalidFormatException {
+    void object_mass_set_correct() throws InvalidFormatException {
         //arrange
         String inputAOC = "SSun27TL";
         String inputID = "AB1234";
@@ -376,7 +371,7 @@ public class SolarSystemInformationTest {
         verify(mockAstroService);
     }
     @Test
-    public void if_returned_info_does_not_through_errors_then_exists_is_true() throws InvalidFormatException {
+    void if_returned_info_does_not_through_errors_then_exists_is_true() throws InvalidFormatException {
         //arrange
         String inputAOC = "SSun27TL";
         String inputID = "AB1234";
@@ -392,7 +387,7 @@ public class SolarSystemInformationTest {
         verify(mockAstroService);
     }
     @Test
-    public void all_fields_set_correctly_and_exists_field_set_to_true() throws InvalidFormatException {
+    void all_fields_set_correctly_and_exists_field_set_to_true() throws InvalidFormatException {
         //arrange
         String inputAOC = "SSun27TL";
         String inputID = "AB1234";
@@ -432,7 +427,7 @@ public class SolarSystemInformationTest {
         verify(mockAstroService);
     }
     @Test
-    public void SMA_returned_with_correct_formatting() throws InvalidFormatException {
+    void SMA_returned_with_correct_formatting() throws InvalidFormatException {
         //arrange
         String inputAOC = "SSun27TL";
         String inputID = "AB1234";
@@ -449,7 +444,7 @@ public class SolarSystemInformationTest {
         verify(mockAstroService);
     }
     @Test
-    public void mass_returned_with_correct_formatting() throws InvalidFormatException {
+    void mass_returned_with_correct_formatting() throws InvalidFormatException {
         //arrange
         String inputAOC = "SSun27TL";
         String inputID = "AB1234";
@@ -466,7 +461,7 @@ public class SolarSystemInformationTest {
         verify(mockAstroService);
     }
     @Test
-    public void to_string_returned_in_correct_format() throws InvalidFormatException {
+    void to_string_returned_in_correct_format() throws InvalidFormatException {
         //arrange
         String inputAOC = "PEar150M";
         String inputID = "AB1234";
@@ -483,7 +478,7 @@ public class SolarSystemInformationTest {
         verify(mockAstroService);
     }
     @Test
-    public void all_fields_set_to_zero_and_exists_field_set_to_false_if_username_wrong() throws InvalidFormatException {
+    void all_fields_set_to_zero_and_exists_field_set_to_false_if_username_wrong() throws InvalidFormatException {
         //arrange
         String inputID = "AB123";
         String inputPassword = "abcD1234!@";
@@ -516,7 +511,7 @@ public class SolarSystemInformationTest {
         assertEquals(expectedExists, actualExists);
     }
     @Test
-    public void all_fields_set_to_zero_and_exists_field_set_to_false_if_password_wrong() throws InvalidFormatException {
+    void all_fields_set_to_zero_and_exists_field_set_to_false_if_password_wrong() throws InvalidFormatException {
         //arrange
         String inputID = "AB1234";
         String inputPassword = "23232332";
@@ -549,7 +544,7 @@ public class SolarSystemInformationTest {
         assertEquals(expectedExists, actualExists);
     }
     @Test
-    public void if_code_doesnt_exist_then_returned_non_existance_string_is_assigned_to_code_variable() throws InvalidFormatException {
+    void if_code_doesnt_exist_then_returned_non_existance_string_is_assigned_to_code_variable() throws InvalidFormatException {
         //arrange
         String inputAOC = "PEar150M";
         String inputID = "AB1234";
@@ -566,7 +561,7 @@ public class SolarSystemInformationTest {
         verify(mockAstroService);
     }
     @Test
-    public void if_code_doesnt_exist_then_returned_non_existance_string_is_assigned_to_code_variable_and_exist_is_set_to_false() throws InvalidFormatException {
+    void if_code_doesnt_exist_then_returned_non_existance_string_is_assigned_to_code_variable_and_exist_is_set_to_false() throws InvalidFormatException {
         //arrange
         String inputAOC = "PEar150M";
         String inputID = "AB1234";
@@ -585,7 +580,7 @@ public class SolarSystemInformationTest {
         verify(mockAstroService);
     }
     @Test
-    public void if_code_doesnt_exist_then_returned_non_existance_string_is_assigned_to_code_variable_and_exist_is_set_to_false_and_all_else_is_0_or_null() throws InvalidFormatException {
+    void if_code_doesnt_exist_then_returned_non_existance_string_is_assigned_to_code_variable_and_exist_is_set_to_false_and_all_else_is_0_or_null() throws InvalidFormatException {
         //arrange
         String inputAOC = "PEar150M";
         String inputID = "AB1234";
@@ -623,7 +618,7 @@ public class SolarSystemInformationTest {
     }
     ///////////////////////////////////////////////////////////////////////////Different Outcome Tests///////////////////////////////////////////////////////////////////////////////////////////
     @Test
-    public void test_diffferent_valued_entries_1() throws InvalidFormatException {
+    void test_diffferent_valued_entries_1() throws InvalidFormatException {
         //arrange
         String inputAOC = "MMoo384T";
         String inputID = "AB1234";
@@ -640,7 +635,7 @@ public class SolarSystemInformationTest {
         verify(mockAstroService);
     }
     @Test
-    public void test_diffferent_valued_entries_2() throws InvalidFormatException {
+    void test_diffferent_valued_entries_2() throws InvalidFormatException {
         //arrange
         String inputAOC = "MPho9T";
         String inputID = "AB1234";
@@ -657,7 +652,7 @@ public class SolarSystemInformationTest {
         verify(mockAstroService);
     }
     @Test
-    public void test_diffferent_valued_entries_3() throws InvalidFormatException {
+    void test_diffferent_valued_entries_3() throws InvalidFormatException {
         //arrange
         String inputAOC = "PEar150M";
         String inputID = "AB1234";
@@ -674,7 +669,7 @@ public class SolarSystemInformationTest {
         verify(mockAstroService);
     }
     @Test
-    public void test_diffferent_valued_entries_4() throws InvalidFormatException {
+    void test_diffferent_valued_entries_4() throws InvalidFormatException {
         //arrange
         String inputAOC = "DCer416M";
         String inputID = "AB1234";
@@ -690,9 +685,8 @@ public class SolarSystemInformationTest {
         assertEquals(expected, actual);
         verify(mockAstroService);
     }
-
     @Test
-    public void test_diffferent_valued_entries_5() throws InvalidFormatException {
+    void test_diffferent_valued_entries_5() throws InvalidFormatException {
         //arrange
         String inputAOC = "DPlu6B";
         String inputID = "AB1234";
@@ -708,9 +702,8 @@ public class SolarSystemInformationTest {
         assertEquals(expected, actual);
         verify(mockAstroService);
     }
-
     @Test
-    public void test_diffferent_valued_entries_6() throws InvalidFormatException {
+    void test_diffferent_valued_entries_6() throws InvalidFormatException {
         //arrange
         String inputAOC = "CHal3B";
         String inputID = "AB1234";
@@ -726,9 +719,8 @@ public class SolarSystemInformationTest {
         assertEquals(expected, actual);
         verify(mockAstroService);
     }
-
     @Test
-    public void test_diffferent_valued_entries_7() throws InvalidFormatException {
+    void test_diffferent_valued_entries_7() throws InvalidFormatException {
         //arrange
         String inputAOC = "A99942Apo138M";
         String inputID = "AB1234";
@@ -745,7 +737,7 @@ public class SolarSystemInformationTest {
         verify(mockAstroService);
     }
     @Test
-    public void test_diffferent_valued_entries_8() throws InvalidFormatException {
+    void test_diffferent_valued_entries_8() throws InvalidFormatException {
         //arrange
         String inputAOC = "APal416M";
         String inputID = "AB1234";
@@ -762,14 +754,14 @@ public class SolarSystemInformationTest {
         verify(mockAstroService);
     }
     @Test
-    public void test_diffferent_valued_entries_9() throws InvalidFormatException {
+    void test_diffferent_valued_entries_9() throws InvalidFormatException {
         //arrange
-        String inputAOC = "A99942Apo138M";
+        String inputAOC = "A3Jun401M";
         String inputID = "AB1234";
         String inputPassword = "abcD1234!@";
-        String expected = "Asteroid, 99942 Apophis [A99942Apo138M] 1.38E+8 km, 5.87E+15 kg";
+        String expected = "Asteroid, 3 Juno [A3Jun401M] 4.01E+8 km, 9.80E+11 kg";
         SolarSystemInformation cut = new SolarSystemInformation(inputID, inputPassword, mockAstroService);
-        expect(mockAstroService.getStatusInfo(inputAOC)).andReturn("A99942Apo138M,Asteroid,99942 Apophis,23,24,138000000,5865680568767056");
+        expect(mockAstroService.getStatusInfo(inputAOC)).andReturn("A3Jun401M,Asteroid,3 Juno,23,24,401000000,979734565656");
         replay(mockAstroService);
         //act
         cut.initialiseAOCDetails(inputAOC);
@@ -777,5 +769,26 @@ public class SolarSystemInformationTest {
         //assert
         assertEquals(expected, actual);
         verify(mockAstroService);
+    }
+    ///////////////////////////////////////////////////////////////More error tests covered previously but more variation needed///////////////////////////////////////////////////
+    @Test
+    void bad_return_string_throws_error1()
+    {
+    }
+    @Test
+    void bad_return_string_throws_error2()
+    {
+    }
+    @Test
+    void bad_return_string_throws_error3()
+    {
+    }
+    @Test
+    void bad_return_string_throws_error4()
+    {
+    }
+    @Test
+    void bad_return_string_throws_error5()
+    {
     }
 }

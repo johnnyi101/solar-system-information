@@ -24,15 +24,15 @@ public class SolarSystemInformation {
     private String rad;
     private String sma;
     private String massS;
-    public String getAOC() { return AOC; }
-    public String getType() { return type; }
-    public String getName() { return name; }
-    public String getOrbital() { return orbital; }
-    public String getRad() { return rad; }
-    public String getSma() { return sma; }
-    public String getMassS() { return massS; }
+    String getAOC() { return AOC; }
+    String getType() { return type; }
+    String getName() { return name; }
+    String getOrbital() { return orbital; }
+    String getRad() { return rad; }
+    String getSma() { return sma; }
+    String getMassS() { return massS; }
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////
-    public SolarSystemInformation(String userID, String password, IAstroService mockAstroService)
+    SolarSystemInformation(String userID, String password, IAstroService mockAstroService)
     {
         this.mockAstroService = mockAstroService;
         this.userID = userID;
@@ -105,21 +105,21 @@ public class SolarSystemInformation {
 //////////////////////////////////////////////////////////Getters and Setters///////////////////////////////////////////
     public String getUserID() { return userID; }
     public void setUserID(String userID) { this.userID = userID; }
-    public String getObjectType() { return objectType; }
+    String getObjectType() { return objectType; }
     private void setObjectType(String objectType) { this.objectType = objectType; }
-    public String getObjectName() { return objectName; }
+    String getObjectName() { return objectName; }
     private void setObjectName(String objectName) { this.objectName = objectName; }
     public String getPassword() { return password; }
     private void setPassword(String password) { this.password = password; }
-    public String getAstronomicalObjectClassificationCode() { return astronomicalObjectClassificationCode; }
+    String getAstronomicalObjectClassificationCode() { return astronomicalObjectClassificationCode; }
     private void setAstronomicalObjectClassificationCode(String astronomicalObjectClassificationCode){ this.astronomicalObjectClassificationCode = astronomicalObjectClassificationCode;}
-    public Boolean getExists () { return exists; }
+    Boolean getExists() { return exists; }
     private void setExists (Boolean exists){ this.exists = exists; }
-    public int getOrbitalPeriod () { return orbitalPeriod; }
+    int getOrbitalPeriod() { return orbitalPeriod; }
     private void setOrbitalPeriod ( int orbitalPeriod){ this.orbitalPeriod = orbitalPeriod; }
-    public BigDecimal getRadius () { return radius; }
+    BigDecimal getRadius() { return radius; }
     private void setRadius (BigDecimal radius){ this.radius = radius; }
-    public BigDecimal getSemiMajorAxis () { return semiMajorAxis; }
+    BigDecimal getSemiMajorAxis() { return semiMajorAxis; }
     private void setSemiMajorAxis (BigDecimal semiMajorAxis)
     {
         NumberFormat formatter = new DecimalFormat("0.0E0");
@@ -127,7 +127,7 @@ public class SolarSystemInformation {
         formatter.setMinimumFractionDigits(2);
         this.semiMajorAxis = new BigDecimal(formatter.format(semiMajorAxis));
     }
-    public BigDecimal getMass () { return mass; }
+    BigDecimal getMass() { return mass; }
     private void setMass (BigDecimal mass)
     {
         NumberFormat formatter = new DecimalFormat("0.0E0");
