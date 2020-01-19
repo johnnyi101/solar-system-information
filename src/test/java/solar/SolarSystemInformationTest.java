@@ -747,12 +747,12 @@ public class SolarSystemInformationTest {
     @Test
     public void test_diffferent_valued_entries_8() throws InvalidFormatException {
         //arrange
-        String inputAOC = "A99942Apo138M";
+        String inputAOC = "APal416M";
         String inputID = "AB1234";
         String inputPassword = "abcD1234!@";
-        String expected = "Asteroid, 99942 Apophis [A99942Apo138M] 1.38E+8 km, 5.87E+15 kg";
+        String expected = "Asteroid, Pallas [APal416M] 4.16E+8 km, 5.98E+21 kg";
         SolarSystemInformation cut = new SolarSystemInformation(inputID, inputPassword, mockAstroService);
-        expect(mockAstroService.getStatusInfo(inputAOC)).andReturn("A99942Apo138M,Asteroid,99942 Apophis,23,24,138000000,5865680568767056");
+        expect(mockAstroService.getStatusInfo(inputAOC)).andReturn("APal416M,Asteroid,Pallas,23,24,416000000,5984567854785789558974");
         replay(mockAstroService);
         //act
         cut.initialiseAOCDetails(inputAOC);
