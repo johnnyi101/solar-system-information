@@ -2,6 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="b3495607-c0e1-44f7-bf5e-2e7fd35e3c69" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/solar/SolarSystemInformation.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/solar/SolarSystemInformation.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/solar/SolarSystemInformationTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/solar/SolarSystemInformationTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/solar/SolarSystemInformation.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/solar/SolarSystemInformation.class" afterDir="false" />
