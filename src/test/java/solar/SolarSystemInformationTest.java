@@ -690,17 +690,16 @@ public class SolarSystemInformationTest {
         assertEquals(expected, actual);
         verify(mockAstroService);
     }
-    /*
+
     @Test
-    public void test_diffferent_valued_entries_5()
-    {
+    public void test_diffferent_valued_entries_5() throws InvalidFormatException {
         //arrange
-        String inputAOC = "PEar150M";
+        String inputAOC = "DPlu6B";
         String inputID = "AB1234";
         String inputPassword = "abcD1234!@";
-        String expected = "Planet, Earth [PEar150M] 1.50E+5 km, 5.97E+24 kg";
+        String expected = "Dwarf planet, Pluto [DPlu6B] 6.00E+9 km, 8.58E+19 kg";
         SolarSystemInformation cut = new SolarSystemInformation(inputID, inputPassword, mockAstroService);
-        expect(mockAstroService.getStatusInfo(inputAOC)).andReturn("PEar150M,Planet,Earth,23,24,150000,5970000000000000000000000");
+        expect(mockAstroService.getStatusInfo(inputAOC)).andReturn("PEar150M,Dwarf planet,Pluto,245453,244545,6000000000,85766543784589590878");
         replay(mockAstroService);
         //act
         cut.initialiseAOCDetails(inputAOC);
@@ -709,6 +708,7 @@ public class SolarSystemInformationTest {
         assertEquals(expected, actual);
         verify(mockAstroService);
     }
+    /*
     @Test
     public void test_diffferent_valued_entries_6()
     {
