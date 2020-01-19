@@ -726,17 +726,16 @@ public class SolarSystemInformationTest {
         assertEquals(expected, actual);
         verify(mockAstroService);
     }
-    /*
+
     @Test
-    public void test_diffferent_valued_entries_9()
-    {
+    public void test_diffferent_valued_entries_7() throws InvalidFormatException {
         //arrange
-        String inputAOC = "PEar150M";
+        String inputAOC = "A99942Apo138M";
         String inputID = "AB1234";
         String inputPassword = "abcD1234!@";
-        String expected = "Planet, Earth [PEar150M] 1.50E+5 km, 5.97E+24 kg";
+        String expected = "Asteroid, 99942 Apophis [A99942Apo138M] 1.38E+8 km, 5.87E+15 kg";
         SolarSystemInformation cut = new SolarSystemInformation(inputID, inputPassword, mockAstroService);
-        expect(mockAstroService.getStatusInfo(inputAOC)).andReturn("PEar150M,Planet,Earth,23,24,150000,5970000000000000000000000");
+        expect(mockAstroService.getStatusInfo(inputAOC)).andReturn("A99942Apo138M,Asteroid,99942 Apophis,23,24,138000000,5865680568767056");
         replay(mockAstroService);
         //act
         cut.initialiseAOCDetails(inputAOC);
@@ -744,5 +743,39 @@ public class SolarSystemInformationTest {
         //assert
         assertEquals(expected, actual);
         verify(mockAstroService);
-    }*/
+    }
+    @Test
+    public void test_diffferent_valued_entries_8() throws InvalidFormatException {
+        //arrange
+        String inputAOC = "A99942Apo138M";
+        String inputID = "AB1234";
+        String inputPassword = "abcD1234!@";
+        String expected = "Asteroid, 99942 Apophis [A99942Apo138M] 1.38E+8 km, 5.87E+15 kg";
+        SolarSystemInformation cut = new SolarSystemInformation(inputID, inputPassword, mockAstroService);
+        expect(mockAstroService.getStatusInfo(inputAOC)).andReturn("A99942Apo138M,Asteroid,99942 Apophis,23,24,138000000,5865680568767056");
+        replay(mockAstroService);
+        //act
+        cut.initialiseAOCDetails(inputAOC);
+        String actual = cut.toString();
+        //assert
+        assertEquals(expected, actual);
+        verify(mockAstroService);
+    }
+    @Test
+    public void test_diffferent_valued_entries_9() throws InvalidFormatException {
+        //arrange
+        String inputAOC = "A99942Apo138M";
+        String inputID = "AB1234";
+        String inputPassword = "abcD1234!@";
+        String expected = "Asteroid, 99942 Apophis [A99942Apo138M] 1.38E+8 km, 5.87E+15 kg";
+        SolarSystemInformation cut = new SolarSystemInformation(inputID, inputPassword, mockAstroService);
+        expect(mockAstroService.getStatusInfo(inputAOC)).andReturn("A99942Apo138M,Asteroid,99942 Apophis,23,24,138000000,5865680568767056");
+        replay(mockAstroService);
+        //act
+        cut.initialiseAOCDetails(inputAOC);
+        String actual = cut.toString();
+        //assert
+        assertEquals(expected, actual);
+        verify(mockAstroService);
+    }
 }
