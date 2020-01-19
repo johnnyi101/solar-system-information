@@ -2,9 +2,7 @@ package solar;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-
 import java.math.BigDecimal;
-
 import static org.junit.jupiter.api.Assertions.*;
 import static org.easymock.EasyMock.createMock;
 import static org.easymock.EasyMock.expect;
@@ -20,7 +18,6 @@ public class SolarSystemInformationTest {
     void setUp() {
         mockAstroService = createMock(IAstroService.class);
     }
-
     ///////////////////////////////////User ID and password validation tests///////////////////////////////////////////////
     @Test
     public void a_valid_user_idlength_is_accepted() {
@@ -38,7 +35,6 @@ public class SolarSystemInformationTest {
         assertEquals(expectedObjectName, resultON);
         assertEquals(expectedObjectType, resultOT);
     }
-
     @Test
     public void id_with_two_capital_letters_at_start_is_accepted() {
         //arrange
@@ -55,7 +51,6 @@ public class SolarSystemInformationTest {
         assertEquals(expectedObjectName, resultON);
         assertEquals(expectedObjectType, resultOT);
     }
-
     @Test
     public void id_with_four_numbers_at_end_is_accepted() {
         //arrange
@@ -72,7 +67,6 @@ public class SolarSystemInformationTest {
         assertEquals(expectedObjectName, resultON);
         assertEquals(expectedObjectType, resultOT);
     }
-
     @Test
     public void erroneous_entries_are_not_allowed() {
         //arrange
@@ -89,7 +83,6 @@ public class SolarSystemInformationTest {
         assertEquals(expectedObjectName, resultON);
         assertEquals(expectedObjectType, resultOT);
     }
-
     @Test
     public void user_ID_cannot_end_in_four_zeros() {
         //arrange
@@ -106,7 +99,6 @@ public class SolarSystemInformationTest {
         assertEquals(expectedObjectName, resultON);
         assertEquals(expectedObjectType, resultOT);
     }
-
     @Test
     public void password_must_be_at_least_ten_characters_in_length() {
         //arrange
@@ -123,7 +115,6 @@ public class SolarSystemInformationTest {
         assertEquals(expectedObjectName, resultON);
         assertEquals(expectedObjectType, resultOT);
     }
-
     @Test
     public void password_must_have_one_upper_lower_special() {
         //arrange
@@ -140,7 +131,6 @@ public class SolarSystemInformationTest {
         assertEquals(expectedObjectName, resultON);
         assertEquals(expectedObjectType, resultOT);
     }
-
     ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     @Test
     public void AOC_getter_validation_returns_info_when_code_format_good() throws InvalidFormatException {
@@ -161,7 +151,6 @@ public class SolarSystemInformationTest {
         assertEquals(expectedOutAOC, resultAOC);
         assertEquals(expectedOutInfo, resultInfo);
     }
-
     @Test
     public void AOC_getter_validation_doesnt_return_info_when_code_format_bad() throws InvalidFormatException {
         //arrange
@@ -175,7 +164,6 @@ public class SolarSystemInformationTest {
             cut.initialiseAOCDetails(inputAOC);
         });
     }
-
     @Test
     public void error_thrown_when_info_returned_in_wrong_format() throws InvalidFormatException {
         //arrange
@@ -195,7 +183,6 @@ public class SolarSystemInformationTest {
             cut.initialiseAOCDetails(mockAstroService.getStatusInfo(inputAOC));
         });
     }
-
     @Test
     public void AOC_getter_validation_bad_format_gets_error() throws InvalidFormatException {
         //arrange
@@ -212,7 +199,6 @@ public class SolarSystemInformationTest {
         //assert
         assertEquals(expectedOut, actualOut);
     }
-
     @Test
     public void boolean_true_returned_if_credentials_are_correct() {
         //arrange
@@ -226,7 +212,6 @@ public class SolarSystemInformationTest {
         assertTrue(actual);
         verify(mockAstroService);
     }
-
     @Test
     public void boolean_false_returned_if_credentials_are_wrong() {
         //arrange
@@ -240,7 +225,6 @@ public class SolarSystemInformationTest {
         assertFalse(actual);
         verify(mockAstroService);
     }
-
     @Test
     public void string_returned_from_WS_when_auth_is_true() {
         //arrange
@@ -254,7 +238,6 @@ public class SolarSystemInformationTest {
         assertEquals(expected, actual);
         verify(mockAstroService);
     }
-
     @Test
     public void does_the_returned_string_info_split_properly_and_variables_are_set() throws InvalidFormatException {
         //arrange
@@ -290,7 +273,6 @@ public class SolarSystemInformationTest {
         assertEquals(expectP7, returnedp7);
         verify(mockAstroService);
     }
-
     @Test
     public void object_type_set_correct() throws InvalidFormatException {
         //arrange
@@ -308,7 +290,6 @@ public class SolarSystemInformationTest {
         assertEquals(expected, actual);
         verify(mockAstroService);
     }
-
     @Test
     public void object_name_set_correct() throws InvalidFormatException {
         //arrange
@@ -326,7 +307,6 @@ public class SolarSystemInformationTest {
         assertEquals(expected, actual);
         verify(mockAstroService);
     }
-
     @Test
     public void object_orbital_period_set_correct() throws InvalidFormatException {
         //arrange
@@ -344,7 +324,6 @@ public class SolarSystemInformationTest {
         assertEquals(expected, actual);
         verify(mockAstroService);
     }
-
     @Test
     public void object_radius_set_correct() throws InvalidFormatException {
         //arrange
@@ -362,7 +341,6 @@ public class SolarSystemInformationTest {
         assertEquals(expected, actual);
         verify(mockAstroService);
     }
-
     @Test
     public void object_sma_set_correct() throws InvalidFormatException {
         //arrange
@@ -380,7 +358,6 @@ public class SolarSystemInformationTest {
         assertEquals(expected, actual);
         verify(mockAstroService);
     }
-
     @Test
     public void object_mass_set_correct() throws InvalidFormatException {
         //arrange
@@ -398,7 +375,6 @@ public class SolarSystemInformationTest {
         assertEquals(expected, actual);
         verify(mockAstroService);
     }
-
     @Test
     public void if_returned_info_does_not_through_errors_then_exists_is_true() throws InvalidFormatException {
         //arrange
@@ -415,7 +391,6 @@ public class SolarSystemInformationTest {
         assertTrue(actual);
         verify(mockAstroService);
     }
-
     @Test
     public void all_fields_set_correctly_and_exists_field_set_to_true() throws InvalidFormatException {
         //arrange
@@ -456,7 +431,6 @@ public class SolarSystemInformationTest {
 
         verify(mockAstroService);
     }
-
     @Test
     public void SMA_returned_with_correct_formatting() throws InvalidFormatException {
         //arrange
@@ -474,7 +448,6 @@ public class SolarSystemInformationTest {
         assertEquals(expected, actual);
         verify(mockAstroService);
     }
-
     @Test
     public void mass_returned_with_correct_formatting() throws InvalidFormatException {
         //arrange
@@ -492,7 +465,6 @@ public class SolarSystemInformationTest {
         assertEquals(expected, actual);
         verify(mockAstroService);
     }
-
     @Test
     public void to_string_returned_in_correct_format() throws InvalidFormatException {
         //arrange
@@ -510,7 +482,6 @@ public class SolarSystemInformationTest {
         assertEquals(expected, actual);
         verify(mockAstroService);
     }
-
     @Test
     public void all_fields_set_to_zero_and_exists_field_set_to_false_if_username_wrong() throws InvalidFormatException {
         //arrange
@@ -544,7 +515,6 @@ public class SolarSystemInformationTest {
         assertEquals(expectedMass, actualMass);
         assertEquals(expectedExists, actualExists);
     }
-
     @Test
     public void all_fields_set_to_zero_and_exists_field_set_to_false_if_password_wrong() throws InvalidFormatException {
         //arrange
@@ -577,7 +547,6 @@ public class SolarSystemInformationTest {
         assertEquals(expectedsma, actualSma);
         assertEquals(expectedMass, actualMass);
         assertEquals(expectedExists, actualExists);
-
     }
     @Test
     public void if_code_doesnt_exist_then_returned_non_existance_string_is_assigned_to_code_variable() throws InvalidFormatException {
@@ -652,6 +621,10 @@ public class SolarSystemInformationTest {
         assertFalse(actualExists);
         verify(mockAstroService);
     }
+    ///////////////////////////////////////////////////////////////////////////Different Outcome Tests///////////////////////////////////////////////////////////////////////////////////////////
+    @Test
+    public void ()
+    {
 
-
+    }
 }
